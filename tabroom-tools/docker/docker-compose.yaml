@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  tabroom-tools:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - tabroom-db-data:/app/data
+      - tabroom-cookies:/app/cookies
+    restart: unless-stopped
+    environment:
+      - DATABASE_URL=sqlite:////app/data/tabroom.db
+      - COOKIE_DIR=/app/cookies
+      - DEBUG=false
+
+volumes:
+  tabroom-db-data:
+    # This creates a named volume that persists between container rebuilds
+  tabroom-cookies:
+    # This creates a named volume for cookies that persists between container rebuilds
