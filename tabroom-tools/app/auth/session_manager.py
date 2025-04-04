@@ -1,109 +1,349 @@
 # app/auth/session_manager.py
-import os
-import pickle
-import base64
 import logging
 import time
-from Crypto.Cipher import AES
-from Crypto.Util.Padding import pad, unpad
+import traceback
+import os
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import TimeoutException, WebDriverException, StaleElementReferenceException
+from selenium.common.exceptions import TimeoutException, WebDriverException, NoSuchElementException
 
 from app import config
-from app.auth.driver_manager import WebDriverPool
+from app.auth.driver_pool import WebDriverPool
+from app.auth.credential_manager import CredentialManager
+from app.auth.cookie_manager import CookieManager
 
 logger = logging.getLogger(__name__)
 
 class TabroomSession:
-    """Enhanced authentication and session management for tabroom.com"""
-    def __init__(self, cookie_dir=None, encryption_key=None):
+    """Authentication and session management for tabroom.com"""
+    
+    def __init__(self, storage_dir=None, encryption_key=None):
         """
         Initialize the session manager
         
         Args:
-            cookie_dir: Directory to store cookies (defaults to config value)
-            encryption_key: Key to encrypt credentials (defaults to config value)
+            storage_dir: Directory to store session data (cookies, credentials)
+            encryption_key: Key for encrypting credentials
         """
-        self.cookie_dir = cookie_dir or config.COOKIE_DIR
-        self.encryption_key = encryption_key or config.ENCRYPTION_KEY or b'TabroomDefaultKey'
-        os.makedirs(self.cookie_dir, exist_ok=True)
-        
-        self.cookie_file = os.path.join(self.cookie_dir, "tabroom_cookies.pkl")
-        self.credentials_file = os.path.join(self.cookie_dir, "credentials.enc")
         self.driver_pool = WebDriverPool()
+        self.credential_manager = CredentialManager(storage_dir, encryption_key)
+        self.cookie_manager = CookieManager(storage_dir)
         
-    def _encrypt_data(self, data):
-        """Encrypt data using AES"""
-        cipher = AES.new(self.encryption_key, AES.MODE_CBC)
-        padded_data = pad(data.encode(), AES.block_size)
-        encrypted_data = cipher.encrypt(padded_data)
-        iv = cipher.iv
-        return base64.b64encode(iv + encrypted_data).decode()
-    
-    def _decrypt_data(self, encrypted_data):
-        """Decrypt data using AES"""
-        try:
-            encrypted_bytes = base64.b64decode(encrypted_data.encode())
-            iv = encrypted_bytes[:AES.block_size]
-            cipher = AES.new(self.encryption_key, AES.MODE_CBC, iv=iv)
-            decrypted_data = unpad(cipher.decrypt(encrypted_bytes[AES.block_size:]), AES.block_size)
-            return decrypted_data.decode()
-        except Exception as e:
-            logger.error(f"Error decrypting data: {e}")
-            return None
-    
-    def save_credentials(self, username, password):
-        """Save tabroom.com credentials securely using encryption"""
-        try:
-            credentials = {
-                "username": username,
-                "password": password
-            }
-            credentials_json = str(credentials)
-            encrypted_data = self._encrypt_data(credentials_json)
-            
-            with open(self.credentials_file, "w") as f:
-                f.write(encrypted_data)
-            logger.info("Credentials saved successfully")
-            return True
-        except Exception as e:
-            logger.error(f"Error saving credentials: {e}")
-            return False
-    
-    def load_credentials(self):
-        """Load stored tabroom.com credentials if available"""
-        if not os.path.exists(self.credentials_file):
-            return None
-        
-        try:
-            with open(self.credentials_file, "r") as f:
-                encrypted_data = f.read()
-            
-            decrypted_json = self._decrypt_data(encrypted_data)
-            if decrypted_json:
-                # Convert string representation of dict back to dict
-                credentials = eval(decrypted_json)
-                return credentials
-            return None
-        except Exception as e:
-            logger.error(f"Error loading credentials: {e}")
-            return None
-    
-    def wait_for_element(self, driver, selector, by=By.CSS_SELECTOR, timeout=10, condition=EC.presence_of_element_located):
+    def login(self, username=None, password=None, save_credentials=True, max_retries=3):
         """
-        Wait for an element to appear on the page
+        Login to tabroom.com using form submission
+        
+        Args:
+            username: Tabroom username/email
+            password: Tabroom password
+            save_credentials: Whether to save credentials for future use
+            max_retries: Maximum number of login attempts
+            
+        Returns:
+            bool: True if login successful, False otherwise
+        """
+        # Get credentials if not provided
+        if not username or not password:
+            stored_credentials = self.credential_manager.load_credentials()
+            if stored_credentials:
+                username = stored_credentials.get("username")
+                password = stored_credentials.get("password")
+            
+            if not username or not password:
+                logger.error("No credentials provided and no stored credentials found")
+                return False
+        
+        # Save credentials if requested
+        if save_credentials:
+            self.credential_manager.save_credentials(username, password)
+        
+        # Attempt login
+        driver = None
+        login_success = False
+        attempt = 0
+        
+        while attempt < max_retries and not login_success:
+            attempt += 1
+            logger.info(f"Login attempt {attempt}/{max_retries}")
+            
+            try:
+                # Get a driver
+                driver = self.driver_pool.get_driver()
+                if not driver:
+                    logger.error("Failed to create browser driver")
+                    continue
+                
+                # Navigate to login page
+                driver.get(config.LOGIN_URL)
+                logger.info(f"Loaded login page: {driver.title}")
+                
+                # Wait for page to load
+                time.sleep(2)
+                
+                # Based on the HTML structure, target the specific elements
+                # Use JavaScript for more reliable interaction across browsers
+                form_filled = driver.execute_script("""
+                    // Check if main login form exists
+                    var emailField = document.getElementById('login_email');
+                    var passwordField = document.getElementById('login_password');
+                    
+                    if (!emailField || !passwordField) {
+                        // Try looking for the fields in the login-popup
+                        emailField = document.getElementById('username');
+                        passwordField = document.getElementById('password');
+                        
+                        if (!emailField || !passwordField) {
+                            return false;
+                        }
+                    }
+                    
+                    // Clear and set values
+                    emailField.value = '';
+                    passwordField.value = '';
+                    emailField.value = arguments[0];
+                    passwordField.value = arguments[1];
+                    
+                    return true;
+                """, username, password)
+                
+                if not form_filled:
+                    logger.error("Failed to find and fill login form")
+                    continue
+                
+                # Submit the form instead of clicking the button
+                form_submitted = driver.execute_script("""
+                    // Find the form the login fields belong to
+                    var emailField = document.getElementById('login_email') || document.getElementById('username');
+                    if (!emailField) return false;
+                    
+                    var form = emailField.closest('form');
+                    if (form) {
+                        // Submit the form
+                        form.submit();
+                        return true;
+                    }
+                    return false;
+                """)
+                
+                if not form_submitted:
+                    logger.error("Failed to submit login form")
+                    continue
+                
+                # Wait for page to load after login
+                time.sleep(3)
+                
+                # Check if login was successful
+                login_success = self._verify_login(driver, username)
+                
+                if login_success:
+                    logger.info(f"Login successful for {username}")
+                    self.cookie_manager.save_cookies(driver)
+                    return True
+                else:
+                    # Try to get any error messages
+                    error_message = driver.execute_script("""
+                        var warnings = document.getElementsByClassName('warning');
+                        if (warnings.length > 0) {
+                            return warnings[0].textContent.trim();
+                        }
+                        return '';
+                    """)
+                    
+                    if error_message:
+                        logger.error(f"Login failed: {error_message}")
+                    else:
+                        logger.error("Login failed: No success indicators found")
+                
+            except Exception as e:
+                error_trace = traceback.format_exc()
+                logger.error(f"Login error: {e}\n{error_trace}")
+            finally:
+                # Brief delay before retry
+                if attempt < max_retries and not login_success:
+                    time.sleep(config.RETRY_DELAY)
+        
+        # Release driver if we're returning
+        if driver:
+            self.driver_pool.release_driver()
+            
+        return login_success
+    
+    def is_logged_in(self):
+        """
+        Check if the current session is logged in
+        
+        Returns:
+            bool: True if logged in, False otherwise
+        """
+        driver = None
+        try:
+            driver = self.driver_pool.get_driver()
+            if not driver:
+                return False
+            
+            # Try to load cookies
+            if not self.cookie_manager.load_cookies(driver, config.TABROOM_URL):
+                return False
+            
+            # Navigate to a page that requires login
+            driver.get(f"{config.TABROOM_URL}/user/home.mhtml")
+            
+            # Check for logout link or other logged-in indicators
+            is_logged_in = self._verify_login(driver)
+            return is_logged_in
+            
+        except Exception as e:
+            logger.error(f"Error checking login status: {e}")
+            return False
+        finally:
+            if driver:
+                self.driver_pool.release_driver()
+    
+    def ensure_login(self, username=None, password=None):
+        """
+        Ensure we have an active session, logging in if necessary
+        
+        Args:
+            username: Username to use if login is required
+            password: Password to use if login is required
+            
+        Returns:
+            bool: True if logged in, False otherwise
+        """
+        # Check if already logged in
+        if self.is_logged_in():
+            logger.info("Already logged in")
+            return True
+        
+        # If not logged in, attempt login
+        logger.info("Not logged in, attempting login")
+        return self.login(username, password)
+    
+    def logout(self):
+        """
+        Logout from tabroom.com and clear session data
+        
+        Returns:
+            bool: True if successful, False otherwise
+        """
+        driver = None
+        try:
+            driver = self.driver_pool.get_driver()
+            if not driver:
+                # Clear cookies even if driver creation fails
+                self.cookie_manager.clear_cookies()
+                return True
+            
+            # Load cookies first
+            if self.cookie_manager.load_cookies(driver, config.TABROOM_URL):
+                # Navigate to tabroom.com
+                driver.get(config.TABROOM_URL)
+                
+                # Find and click logout link if available
+                logout_link = self._wait_for_element(
+                    driver,
+                    "//a[contains(@href, 'logout.mhtml') or @id='tabroom_logout']",
+                    By.XPATH,
+                    timeout=5
+                )
+                
+                if logout_link:
+                    logout_link.click()
+                    
+                    # Wait for logout to complete
+                    self._wait_for_element(
+                        driver,
+                        "//a[contains(@href, 'login.mhtml') or contains(text(), 'Log In')]",
+                        By.XPATH,
+                        timeout=10
+                    )
+            
+            # Clear cookies regardless
+            self.cookie_manager.clear_cookies()
+            logger.info("Successfully logged out and cleared session data")
+            return True
+            
+        except Exception as e:
+            logger.error(f"Error during logout: {e}")
+            return False
+        finally:
+            if driver:
+                self.driver_pool.release_driver()
+    
+    def get_driver(self):
+        """
+        Get an authenticated WebDriver instance
+        
+        Returns:
+            WebDriver: Authenticated WebDriver instance or None if authentication failed
+        """
+        try:
+            # Ensure we're logged in
+            if not self.ensure_login():
+                return None
+                
+            # Get a new driver
+            driver = self.driver_pool.get_driver()
+            if not driver:
+                return None
+                
+            # Load cookies to authenticate
+            if not self.cookie_manager.load_cookies(driver, config.TABROOM_URL):
+                self.driver_pool.release_driver()
+                return None
+                
+            # Verify login status with loaded cookies
+            if not self._verify_login(driver):
+                logger.warning("Cookie authentication failed, trying full login")
+                self.driver_pool.release_driver()
+                
+                # If cookie authentication failed, try full login again
+                if not self.ensure_login():
+                    return None
+                
+                # Get a fresh driver and load cookies
+                driver = self.driver_pool.get_driver()
+                if not driver or not self.cookie_manager.load_cookies(driver, config.TABROOM_URL):
+                    if driver:
+                        self.driver_pool.release_driver()
+                    return None
+            
+            # Return authenticated driver
+            return driver
+            
+        except Exception as e:
+            logger.error(f"Error getting authenticated driver: {e}")
+            if driver:
+                self.driver_pool.release_driver()
+            return None
+    
+    def release_driver(self, driver):
+        """
+        Release a driver back to the pool
+        
+        Args:
+            driver: WebDriver instance to release
+        """
+        if driver:
+            # Save cookies before releasing
+            self.cookie_manager.save_cookies(driver)
+            self.driver_pool.release_driver()
+    
+    def _wait_for_element(self, driver, selector, by=By.CSS_SELECTOR, timeout=10, 
+                          condition=EC.presence_of_element_located):
+        """
+        Wait for an element to be present/visible/clickable
         
         Args:
             driver: WebDriver instance
-            selector: Element selector (CSS selector by default)
-            by: Type of selector (defaults to CSS_SELECTOR)
+            selector: Element selector
+            by: Selector type (By.ID, By.XPATH, etc.)
             timeout: Maximum wait time in seconds
             condition: Expected condition to wait for
             
         Returns:
-            The element if found, None otherwise
+            WebElement if found, None otherwise
         """
         try:
             element = WebDriverWait(driver, timeout).until(
@@ -117,270 +357,99 @@ class TabroomSession:
             logger.error(f"Error waiting for element {selector}: {e}")
             return None
     
-    def load_cookies(self, driver):
-        """Load cookies into the provided WebDriver if available"""
-        if not os.path.exists(self.cookie_file):
-            logger.info("No stored cookies found")
-            return False
-        
-        try:
-            # First navigate to the domain (required before adding cookies)
-            driver.get(config.TABROOM_URL)
-            
-            # Wait for the page to load
-            self.wait_for_element(driver, "body")
-            
-            # Load cookies from file
-            with open(self.cookie_file, "rb") as f:
-                cookies = pickle.load(f)
-                
-            # Add cookies to the driver
-            for cookie in cookies:
-                try:
-                    # Some browsers/drivers have issues with expiry dates
-                    if 'expiry' in cookie:
-                        del cookie['expiry']
-                    driver.add_cookie(cookie)
-                except Exception as e:
-                    logger.warning(f"Error adding cookie: {e}")
-            
-            # Refresh to apply cookies
-            driver.refresh()
-            
-            logger.info("Cookies loaded successfully")
-            return True
-            
-        except Exception as e:
-            logger.error(f"Error loading cookies: {e}")
-            return False
-    
-    def save_cookies(self, driver):
-        """Save cookies from the current WebDriver session"""
-        try:
-            cookies = driver.get_cookies()
-            with open(self.cookie_file, "wb") as f:
-                pickle.dump(cookies, f)
-            logger.info("Cookies saved successfully")
-            return True
-        except Exception as e:
-            logger.error(f"Error saving cookies: {e}")
-            return False
-    
-    def login(self, username=None, password=None, save_credentials=True, max_retries=3):
+    def _verify_login(self, driver, username=None):
         """
-        Login to tabroom.com with retry mechanism
+        Verify if the current session is logged in
         
         Args:
-            username: Tabroom username
-            password: Tabroom password
-            save_credentials: Whether to save credentials for future use
-            max_retries: Maximum number of login attempts
+            driver: WebDriver instance
+            username: Optional username to verify
             
         Returns:
-            bool: True if login was successful, False otherwise
+            bool: True if logged in, False otherwise
         """
-        # If no credentials provided, try to load stored credentials
-        if (username is None or password is None):
-            stored_credentials = self.load_credentials()
-            if stored_credentials:
-                username = stored_credentials.get("username")
-                password = stored_credentials.get("password")
-            else:
-                logger.error("No credentials provided and no stored credentials found")
-                return False
-        
-        if save_credentials:
-            self.save_credentials(username, password)
-        
-        driver = None
-        attempts = 0
-        
-        while attempts < max_retries:
-            attempts += 1
-            try:
-                driver = self.driver_pool.get_driver()
-                
-                # Navigate to login page
-                driver.get(config.LOGIN_URL)
-                
-                # Wait for the login form to load completely
-                username_field = self.wait_for_element(
-                    driver, 
-                    "login_email", 
-                    By.ID, 
-                    timeout=10, 
-                    condition=EC.presence_of_element_located
-                )
-                
-                if not username_field:
-                    logger.error("Login form not found or not loaded completely")
-                    continue  # Try again
-                
-                password_field = driver.find_element(By.ID, "login_password")
-                
-                # Clear fields and enter credentials
-                username_field.clear()
-                password_field.clear()
-                username_field.send_keys(username)
-                password_field.send_keys(password)
-                
-                # Submit form
-                login_button = self.wait_for_element(
-                    driver,
-                    "//input[@type='submit' and @value=' Log Into Your Account ']",
-                    By.XPATH,
-                    timeout=5
-                )
-                
-                if not login_button:
-                    logger.error("Login button not found")
-                    continue  # Try again
-                    
-                login_button.click()
-                
-                # Wait for login to complete by checking for logout link
-                success = self.wait_for_element(
-                    driver,
-                    "//a[contains(text(), 'Log Out') or @id='tabroom_logout']",
-                    By.XPATH,
-                    timeout=10,
-                    condition=EC.presence_of_element_located
-                )
-                
-                if success:
-                    # Additional verification - check if user's email is displayed
-                    email_element = self.wait_for_element(
-                        driver,
-                        "tabroom_edlee",
-                        By.ID,
-                        timeout=5
-                    )
-                    
-                    if email_element and username.lower() in email_element.text.lower():
-                        # Save cookies for future use
-                        self.save_cookies(driver)
-                        logger.info(f"Login successful for {username}")
-                        return True
-                
-                # Check if there's an error message
-                error_elements = driver.find_elements(By.CLASS_NAME, "warning")
-                if error_elements:
-                    error_text = error_elements[0].text
-                    logger.error(f"Login failed: {error_text}")
-                else:
-                    logger.error(f"Login failed: No success indicator found (attempt {attempts}/{max_retries})")
-                
-                # Short delay before retry
-                time.sleep(2)
-                
-            except Exception as e:
-                logger.error(f"Login error: {e}")
-                time.sleep(2)  # Wait before retry
-                
-            finally:
-                if driver and attempts >= max_retries:
-                    self.driver_pool.release_driver()
-        
-        logger.error(f"Login failed after {max_retries} attempts")
-        return False
-    
-    def is_logged_in(self):
-        """Check if the current session is logged in to tabroom.com"""
-        driver = None
         try:
-            driver = self.driver_pool.get_driver()
+            # Log current URL and page title
+            logger.info(f"Verifying login - URL: {driver.current_url} - Title: {driver.title}")
             
-            # Try to load cookies
-            if not self.load_cookies(driver):
-                return False
+            # Take a screenshot for debugging if enabled
+            self._take_debug_screenshot(driver, "verify_login")
             
-            # Navigate to a page that requires login
-            driver.get(f"{config.TABROOM_URL}/user/home.mhtml")
+            # Check login status via JavaScript for more reliable cross-browser behavior
+            login_indicators = driver.execute_script("""
+                // Common indicators of being logged in
+                var indicators = {
+                    // Check for logout link
+                    logoutLink: document.querySelector('a[href*="logout.mhtml"]') !== null,
+                    
+                    // Check for tabroom_logout element
+                    logoutElement: document.getElementById('tabroom_logout') !== null,
+                    
+                    // Check for account link
+                    accountLink: document.querySelector('a[href*="account.mhtml"]') !== null,
+                    
+                    // Check for dashboard link
+                    dashboardLink: document.querySelector('a[href*="dashboard"]') !== null,
+                    
+                    // Check for URL indicators
+                    authenticatedUrl: window.location.href.includes('/user/home') || 
+                                     window.location.href.includes('/dashboard')
+                };
+                
+                // Check if username verification element exists
+                if (arguments[0]) {
+                    var userElement = document.getElementById('tabroom_edlee');
+                    if (userElement) {
+                        indicators.usernameVerified = userElement.textContent.toLowerCase().includes(arguments[0].toLowerCase());
+                    }
+                }
+                
+                return indicators;
+            """, username)
             
-            # Check for logout link or other logged-in indicators
-            logout_link = self.wait_for_element(
-                driver,
-                "//a[contains(@href, 'logout.mhtml') or @id='tabroom_logout']",
-                By.XPATH,
-                timeout=5
-            )
+            # Log the found indicators
+            for indicator, found in login_indicators.items():
+                if found:
+                    logger.info(f"Found login indicator: {indicator}")
             
-            email_element = self.wait_for_element(
-                driver,
-                "tabroom_edlee",
-                By.ID,
-                timeout=5
-            )
-            
-            if logout_link and email_element:
-                logger.info("Session is logged in")
+            # Check if any login indicator was found
+            if any(login_indicators.values()):
+                # If username verification was requested and failed, log a warning
+                if username and not login_indicators.get('usernameVerified', True):
+                    logger.warning(f"Username verification failed for {username}")
+                
+                # But still consider it a success if any indicator was found
                 return True
             
-            logger.info("Session is not logged in")
-            return False
-                
-        except Exception as e:
-            logger.error(f"Error checking login status: {e}")
+            # No login indicators found
+            logger.warning("No login indicators found")
             return False
             
-        finally:
-            if driver:
-                self.driver_pool.release_driver()
+        except Exception as e:
+            error_trace = traceback.format_exc()
+            logger.error(f"Error verifying login status: {e}\n{error_trace}")
+            return False
     
-    def ensure_login(self, username=None, password=None):
-        """Ensure the session is logged in, attempting login if necessary"""
-        # First check if already logged in
-        if self.is_logged_in():
-            return True
+    def _take_debug_screenshot(self, driver, prefix):
+        """
+        Take a debug screenshot if debug mode is enabled
         
-        # If not logged in, try to login
-        logger.info("Not logged in, attempting login")
-        return self.login(username, password)
-    
-    def logout(self):
-        """Log out from tabroom.com and clear session data"""
-        driver = None
+        Args:
+            driver: WebDriver instance
+            prefix: Prefix for the screenshot filename
+        """
+        if not config.DEBUG:
+            return
+            
         try:
-            driver = self.driver_pool.get_driver()
+            screenshots_dir = os.path.join(config.DATA_DIR, "screenshots")
+            os.makedirs(screenshots_dir, exist_ok=True)
             
-            # Load cookies and check if logged in
-            if not self.load_cookies(driver):
-                # If no cookies, we're effectively logged out
-                return True
+            timestamp = time.strftime("%Y%m%d-%H%M%S")
+            filename = f"{prefix}_{timestamp}.png"
+            filepath = os.path.join(screenshots_dir, filename)
             
-            # Navigate to tabroom.com
-            driver.get(config.TABROOM_URL)
-            
-            # Find and click logout link if available
-            logout_link = self.wait_for_element(
-                driver,
-                "//a[contains(@href, 'logout.mhtml') or @id='tabroom_logout']",
-                By.XPATH,
-                timeout=5
-            )
-            
-            if logout_link:
-                logout_link.click()
-                
-                # Wait for logout to complete
-                self.wait_for_element(
-                    driver,
-                    "//a[contains(@href, 'login.mhtml') or contains(text(), 'Log In')]",
-                    By.XPATH,
-                    timeout=10
-                )
-            
-            # Remove cookie file
-            if os.path.exists(self.cookie_file):
-                os.remove(self.cookie_file)
-            
-            logger.info("Successfully logged out and cleared session data")
-            return True
-            
+            driver.save_screenshot(filepath)
+            logger.debug(f"Saved debug screenshot: {filepath}")
         except Exception as e:
-            logger.error(f"Error during logout: {e}")
-            return False
-            
-        finally:
-            if driver:
-                self.driver_pool.release_driver()
+            logger.warning(f"Failed to take debug screenshot: {e}")
