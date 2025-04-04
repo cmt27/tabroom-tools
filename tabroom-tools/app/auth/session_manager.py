@@ -29,6 +29,7 @@ class TabroomSession:
         self.driver_pool = WebDriverPool()
         self.credential_manager = CredentialManager(storage_dir, encryption_key)
         self.cookie_manager = CookieManager(storage_dir)
+        self._login_verified = False
         
     def login(self, username=None, password=None, save_credentials=True, max_retries=3):
         """
@@ -69,7 +70,7 @@ class TabroomSession:
             
             try:
                 # Get a driver
-                driver = self.driver_pool.get_driver()
+                driver = self.driver_pool.get_driver(reuse=False)  # Force a fresh driver for login
                 if not driver:
                     logger.error("Failed to create browser driver")
                     continue
@@ -137,6 +138,7 @@ class TabroomSession:
                 login_success = self._verify_login(driver, username)
                 
                 if login_success:
+                    self._login_verified = True
                     logger.info(f"Login successful for {username}")
                     self.cookie_manager.save_cookies(driver)
                     return True
@@ -176,18 +178,26 @@ class TabroomSession:
         Returns:
             bool: True if logged in, False otherwise
         """
+        # If we've already verified login in this session, avoid redundant checks
+        if self._login_verified:
+            logger.debug("Login already verified in this session")
+            return True
+            
         # Check if cookies exist before creating a driver
         if not os.path.exists(self.cookie_manager.cookie_file):
+            logger.debug("No cookie file exists, not logged in")
             return False
             
         driver = None
         try:
             driver = self.driver_pool.get_driver()
             if not driver:
+                logger.error("Failed to create driver for login check")
                 return False
             
             # Try to load cookies
             if not self.cookie_manager.load_cookies(driver, config.TABROOM_URL):
+                logger.warning("Failed to load cookies")
                 return False
             
             # Navigate to a page that requires login
@@ -195,6 +205,9 @@ class TabroomSession:
             
             # Check for logout link or other logged-in indicators
             is_logged_in = self._verify_login(driver)
+            if is_logged_in:
+                self._login_verified = True
+            
             return is_logged_in
             
         except Exception as e:
@@ -222,7 +235,12 @@ class TabroomSession:
         
         # If not logged in, attempt login
         logger.info("Not logged in, attempting login")
-        return self.login(username, password)
+        login_result = self.login(username, password)
+        
+        # Update login verification flag
+        self._login_verified = login_result
+        
+        return login_result
     
     def logout(self):
         """
@@ -237,6 +255,7 @@ class TabroomSession:
             if not driver:
                 # Clear cookies even if driver creation fails
                 self.cookie_manager.clear_cookies()
+                self._login_verified = False
                 return True
             
             # Load cookies first
@@ -265,55 +284,56 @@ class TabroomSession:
             
             # Clear cookies regardless
             self.cookie_manager.clear_cookies()
+            self._login_verified = False
             logger.info("Successfully logged out and cleared session data")
             return True
             
         except Exception as e:
             logger.error(f"Error during logout: {e}")
+            self._login_verified = False
             return False
         finally:
             if driver:
                 self.driver_pool.release_driver()
-    
+
     def get_driver(self):
-        """
-        Get an authenticated WebDriver instance
+    """
+    Get an authenticated WebDriver instance
+    
+    Returns:
+        WebDriver: Authenticated WebDriver instance or None if authentication failed
+    """
+    try:
+        # Ensure we're logged in
+        if not self.ensure_login():
+            logger.error("Failed to ensure login before getting driver")
+            return None
+            
+        # Get a new driver, reusing existing ones when possible
+        driver = self.driver_pool.get_driver(reuse=True)
+        if not driver:
+            logger.error("Failed to get driver from pool")
+            return None
+            
+        # Load cookies to authenticate - don't navigate to index page first
+        if not self.cookie_manager.load_cookies(driver, config.TABROOM_URL):
+            logger.warning("Failed to load cookies to driver")
+            self.driver_pool.release_driver()
+            return None
+            
+        # Driver is authenticated with cookies, so we can skip verification
+        # unless we want to be extra cautious
+        logger.info("Successfully provided authenticated driver")
+        return driver
         
-        Returns:
-            WebDriver: Authenticated WebDriver instance or None if authentication failed
-        """
-        try:
-            # Ensure we're logged in
-            if not self.ensure_login():
-                return None
-                
-            # Get a new driver
-            driver = self.driver_pool.get_driver()
-            if not driver:
-                return None
-                
-            # Load cookies to authenticate
-            if not self.cookie_manager.load_cookies(driver, config.TABROOM_URL):
-                self.driver_pool.release_driver()
-                return None
-                
-            # Verify login status with loaded cookies
-            if not self._verify_login(driver):
-                logger.warning("Cookie authentication failed, trying full login")
-                self.driver_pool.release_driver()
-                
-                # If cookie authentication failed, try full login again
-                if not self.ensure_login():
-                    return None
-                
-                # Get a fresh driver and load cookies
-                driver = self.driver_pool.get_driver()
-                if not driver or not self.cookie_manager.load_cookies(driver, config.TABROOM_URL):
-                    if driver:
-                        self.driver_pool.release_driver()
-                    return None
+    except Exception as e:
+        logger.error(f"Error getting authenticated driver: {e}")
+        if 'driver' in locals() and driver:
+            self.driver_pool.release_driver()
+        return None
             
             # Return authenticated driver
+            logger.info("Successfully provided authenticated driver")
             return driver
             
         except Exception as e:
@@ -327,11 +347,15 @@ class TabroomSession:
         Release a driver back to the pool
         
         Args:
-            driver: WebDriver instance to release
+            driver: WebDriver instance to release (optional - if None, uses thread-specific driver)
         """
         if driver:
             # Save cookies before releasing
-            self.cookie_manager.save_cookies(driver)
+            try:
+                self.cookie_manager.save_cookies(driver)
+            except Exception as e:
+                logger.warning(f"Failed to save cookies when releasing driver: {e}")
+        
         self.driver_pool.release_driver()
     
     def _wait_for_element(self, driver, selector, by=By.CSS_SELECTOR, timeout=10, 
