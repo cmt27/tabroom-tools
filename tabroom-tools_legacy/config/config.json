@@ -1,0 +1,13 @@
+{
+  "TABROOM_BASE_URL": "https://www.tabroom.com",
+  "JUDGE_SEARCH_URL": "https://www.tabroom.com/user/judge_search",
+  "SCRAPE_LIMIT": 0,
+  "DB_FILE": "/data/judge_data.db",
+  "CHROMIUM_BINARY": "/usr/bin/chromium",
+  "CHROME_DRIVER_OPTIONS": {
+    "headless": true,
+    "no_sandbox": true,
+    "disable_dev_shm_usage": true
+  },
+  "LOG_LEVEL": "DEBUG"
+}
