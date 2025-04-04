@@ -65,5 +65,5 @@ class ScraperManager:
         # Any cleanup needed for the scrapers
         
         # Release any drivers in the pool
-        self.session.driver_pool.close_all()
+        self.session.driver_pool.cleanup_all()
         logger.info("Scraper manager closed and resources released")

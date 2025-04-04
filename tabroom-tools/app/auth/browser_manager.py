@@ -39,10 +39,8 @@ class BrowserManager:
         if browser_type:
             browser_order.append(browser_type.lower())
         else:
-            if system == "Darwin":  # macOS
-                browser_order = ["chromium", "chrome", "safari"]
-            else:
-                browser_order = ["chromium", "chrome"]
+            # Prioritize Chromium for all platforms
+            browser_order = ["chromium", "chrome", "safari"]
         
         # Try browsers in order until one works
         last_error = None
@@ -100,10 +98,19 @@ class BrowserManager:
         # Common Chrome/Chromium options
         BrowserManager._add_chrome_options(options)
         
-        # Use chromium-specific ChromeDriverManager
-        service = ChromeService(
-            ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()
-        )
+        # If Docker container has specific path for Chromium
+        if os.path.exists(config.CHROMIUM_BINARY_PATH):
+            options.binary_location = config.CHROMIUM_BINARY_PATH
+            
+        # If Docker container has specific path for ChromeDriver
+        if os.path.exists(config.CHROMIUM_DRIVER_PATH):
+            service = ChromeService(config.CHROMIUM_DRIVER_PATH)
+        else:
+            # Fallback to using webdriver_manager
+            service = ChromeService(
+                ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()
+            )
+            
         return webdriver.Chrome(service=service, options=options)
     
     @staticmethod

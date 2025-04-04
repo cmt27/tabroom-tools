@@ -20,8 +20,8 @@ ENCRYPTION_KEY = os.getenv("ENCRYPTION_KEY", secrets.token_bytes(16))
 DATABASE_URL = os.getenv("DATABASE_URL", f"sqlite:///{os.path.join(DATA_DIR, 'tabroom.db')}")
 
 # Selenium settings
-CHROMIUM_DRIVER_PATH = os.getenv("CHROMIUM_DRIVER_PATH", "")
-CHROMIUM_BINARY_PATH = os.getenv("CHROMIUM_BINARY_PATH", "")
+CHROMIUM_DRIVER_PATH = os.getenv("CHROMIUM_DRIVER_PATH", "/usr/bin/chromedriver")
+CHROMIUM_BINARY_PATH = os.getenv("CHROMIUM_BINARY_PATH", "/usr/bin/chromium")
 HEADLESS = os.getenv("HEADLESS", "True").lower() in ("true", "1", "t")
 
 # Web UI settings

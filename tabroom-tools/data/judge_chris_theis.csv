@@ -1,0 +1,582 @@
+JudgeID,JudgeName,Tournament,Lv,Date,Ev,Rd,Aff,Neg,Vote,Result
+,CHRIS THEIS,California Round Robin,HS,2025-02-13,LD RR,4 R4,Los Altos AK,Head-Royce AJ,Neg,
+,CHRIS THEIS,California Round Robin,HS,2025-02-13,LD RR,4 R4,Archbishop Mitty AP,Isidore Newman AB,Neg,
+,CHRIS THEIS,California Round Robin,HS,2025-02-13,LD RR,3 R3,Newark Science AL,Peninsula AL,Aff,Aff 2-0
+,CHRIS THEIS,California Round Robin,HS,2025-02-13,LD RR,2 R2,Harvard-Westlake KM,Flower Mound AM,Aff,Aff 2-0
+,CHRIS THEIS,California Round Robin,HS,2025-02-13,LD RR,1 R1,Head-Royce AJ,Newark Science AL,Neg,Neg 2-0
+,CHRIS THEIS,California Round Robin,HS,2025-02-13,LD RR,1 R1,Flower Mound AM,Archbishop Mitty AP,Aff,
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2025-01-24,LD,11 MD,Greenhill SK,Westlake MR,Aff,Aff 2-1
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2025-01-24,LD,9 RKR,Isidore Newman AB,Lynbrook VV,Neg,Neg 3-0
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2025-01-24,LD,8 WAU,Lynbrook BZ,Westlake MR,Neg,Neg 3-0
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2025-01-24,LD,7 Triple,Vestavia Hills MH,Isidore Newman AB,Aff,Neg 2-1
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2025-01-24,LD,6 R6,Peninsula AY,Harker NB,Aff,
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2025-01-24,LD,5 R5,Brophy TJ,ADL VK,Aff,
+,CHRIS THEIS,Harvard Westlake Debates,HS,2025-01-16,RR,7 R7,Harker SY,Peninsula SU,Aff,
+,CHRIS THEIS,Harvard Westlake Debates,HS,2025-01-16,RR,6 R6,Immaculate Heart ES,Harker SS,Neg,Neg 2-0
+,CHRIS THEIS,Harvard Westlake Debates,HS,2025-01-16,RR,4 R4,Lynbrook BZ,Harvard-Westlake JT,Aff,Aff 2-0
+,CHRIS THEIS,Harvard Westlake Debates,HS,2025-01-16,RR,3 R3,Harker SY,Loyola RV,Aff,Aff 2-0
+,CHRIS THEIS,Harvard Westlake Debates,HS,2025-01-16,RR,2 R2,Harvard-Westlake AS,Harker SY,Aff,Aff 2-0
+,CHRIS THEIS,Harvard Westlake Debates,HS,2025-01-16,RR,1 R1,Immaculate Heart NH,Harvard-Westlake AS,Aff,
+,CHRIS THEIS,Heart of Texas Invitational,HS,2024-10-25,VLD,7 Double,Harker SS,Northland Christian AH,Aff,Aff 3-0
+,CHRIS THEIS,Heart of Texas Invitational,HS,2024-10-25,VLD,6 R6,Harker SD,Village SZ,Neg,
+,CHRIS THEIS,Heart of Texas Invitational,HS,2024-10-25,VLD,6 R6,Harker RA,Barrington AC,Aff,
+,CHRIS THEIS,Heart of Texas Invitational,HS,2024-10-25,VLD,5 R5,Vestavia Hills MH,Harker SSe,Neg,
+,CHRIS THEIS,Heart of Texas Invitational,HS,2024-10-25,VLD,5 R5,Lawrenceville MM,Memorial EJ,Neg,
+,CHRIS THEIS,Greenhill Fall Classic,HS,2024-09-19,LD,9 Quarte,Lynbrook OM,Peninsula AL,Aff,Aff 3-0
+,CHRIS THEIS,Greenhill Fall Classic,HS,2024-09-19,LD,8 Octafi,Peninsula SU,Memorial DX,Aff,Neg 2-1
+,CHRIS THEIS,Greenhill Fall Classic,HS,2024-09-19,LD RR,7 R7,Garland LA,Carnegie Vanguard LH,Neg,
+,CHRIS THEIS,Greenhill Fall Classic,HS,2024-09-19,LD,7 Double,Lynbrook BZ,Los Altos AK,Neg,Neg 3-0
+,CHRIS THEIS,Greenhill Fall Classic,HS,2024-09-19,LD,7 Double,Isidore Newman AB,Lynbrook OM,Neg,Neg 3-0
+,CHRIS THEIS,Greenhill Fall Classic,HS,2024-09-19,LD RR,6 R6,Newark Science AL,Isidore Newman AB,Neg,Neg 2-0
+,CHRIS THEIS,Greenhill Fall Classic,HS,2024-09-19,LD,4 R4,Harvard-Westlake JW,Barrington AC,Neg,
+,CHRIS THEIS,Greenhill Fall Classic,HS,2024-09-19,LD,4 R4,Peninsula AY,Winston Churchill PH,Aff,
+,CHRIS THEIS,Greenhill Fall Classic,HS,2024-09-19,LD,3 R3,Westwood SM,Lynbrook NM,Neg,
+,CHRIS THEIS,Greenhill Fall Classic,HS,2024-09-19,LD,3 R3,Immaculate Heart NH,Isidore Newman AB,Neg,
+,CHRIS THEIS,Greenhill Fall Classic,HS,2024-09-19,LD RR,2 R2,Harvard-Westlake WL,Harrison RP,Aff,Aff 2-0
+,CHRIS THEIS,Greenhill Fall Classic,HS,2024-09-19,LD RR,1 R1,Greenhill AK,L C Anderson NW,Aff,
+,CHRIS THEIS,52nd Annual Tournament of Champions,HS,2024-04-20,LD,10 Semis,Los Altos AK,Strake Jesuit JW,Neg,Neg 3-0
+,CHRIS THEIS,52nd Annual Tournament of Champions,HS,2024-04-20,LD,7 Dbls,Horace Greeley SG,Monta Vista EY,Neg,Neg 2-1
+,CHRIS THEIS,52nd Annual Tournament of Champions,HS,2024-04-20,LD,6 R6,Isidore Newman AB,Immaculate Heart AW,Neg,
+,CHRIS THEIS,52nd Annual Tournament of Champions,HS,2024-04-20,LD,3 R3,Monta Vista KR,Peninsula AB,Neg,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2024-04-13,LD,7 Dbls,Monta Vista KR,Interlake JP,Aff,Aff 2-1
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2024-04-13,LD,6 R6,Immaculate Heart AW,Harker SSe,Aff,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2024-04-13,LD,6 R6,Monta Vista KR,Harker SD,Neg,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2024-04-13,LD,5 R5,Peninsula AB,Harker AA,Aff,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2024-04-13,LD,5 R5,Peninsula AL,Immaculate Heart SS,Neg,
+,CHRIS THEIS,Cal Invitational UC Berkeley,HS,2024-02-17,VLD,10 Quarte,Harvard-Westlake WL,Honor VD,Aff,Aff 3-0
+,CHRIS THEIS,Cal Invitational UC Berkeley,HS,2024-02-17,VLD,9 Octas,Los Altos AK,Harker KB,Aff,Aff 3-0
+,CHRIS THEIS,Cal Invitational UC Berkeley,HS,2024-02-17,VLD,8 Double,Peninsula SU,Harvard-Westlake WL,Neg,Neg 3-0
+,CHRIS THEIS,Cal Invitational UC Berkeley,HS,2024-02-17,VLD,8 Double,Harker KB,Washington Independent WL,Aff,Aff 3-0
+,CHRIS THEIS,Cal Invitational UC Berkeley,HS,2024-02-17,VLD,7 Triple,Harker VL,Stanford OHS AY,Aff,Aff 3-0
+,CHRIS THEIS,Cal Invitational UC Berkeley,HS,2024-02-17,VLD,7 Triple,Sage Oak Charter AK,Washington Independent WL,Neg,Neg 3-0
+,CHRIS THEIS,Cal Invitational UC Berkeley,HS,2024-02-17,VLD,6 R6,Harker SD,Loyola KK,Aff,
+,CHRIS THEIS,Cal Invitational UC Berkeley,HS,2024-02-17,VLD,6 R6,Riverside Independent SH,Harker SSh,Neg,
+,CHRIS THEIS,California Round Robin,HS,2024-02-15,LD RR,4 R4,Flower Mound AM,Sage Oak Charter AK,Aff,Aff 2-0
+,CHRIS THEIS,California Round Robin,HS,2024-02-15,LD RR,3 R3,Delores Taylor Arthur School for Young Men JB,Harvard-Westlake WL,Aff,
+,CHRIS THEIS,California Round Robin,HS,2024-02-15,LD RR,2 R2,Newark Science AL,Delores Taylor Arthur School for Young Men JB,Aff,Aff 2-0
+,CHRIS THEIS,California Round Robin,HS,2024-02-15,LD RR,2 R2,Isidore Newman AB,Peninsula AB,Neg,Neg 2-0
+,CHRIS THEIS,California Round Robin,HS,2024-02-15,LD RR,1 R1,Sage Oak Charter AK,Isidore Newman AB,Aff,Aff 2-0
+,CHRIS THEIS,2024 GOLDEN DESERT DEBATE TOURNAMENT AT UNLV,HS,2024-02-03,PF,10 Semis,Canyon Crest Chloe Chen &amp; Melinda Synn,Fairmont Prep Aumrita Savdharia &amp; Stavan Shah,Con,Con 2-1
+,CHRIS THEIS,2024 GOLDEN DESERT DEBATE TOURNAMENT AT UNLV,HS,2024-02-03,VLD,9 Quarte,Peninsula AB,Harker SD,Neg,Neg 2-1
+,CHRIS THEIS,2024 GOLDEN DESERT DEBATE TOURNAMENT AT UNLV,HS,2024-02-03,VLD,8 Octos,Harker AA,Peninsula BS,Aff,Aff 3-0
+,CHRIS THEIS,2024 GOLDEN DESERT DEBATE TOURNAMENT AT UNLV,HS,2024-02-03,VLD,8 Octos,Loyola RV,Harker SD,Neg,Neg 3-0
+,CHRIS THEIS,2024 GOLDEN DESERT DEBATE TOURNAMENT AT UNLV,HS,2024-02-03,VLD,7 Double,Peninsula DN,Loyola RV,Aff,Neg 2-1
+,CHRIS THEIS,2024 GOLDEN DESERT DEBATE TOURNAMENT AT UNLV,HS,2024-02-03,VLD,7 Double,Harker NB,Peninsula KN,Aff,Aff 3-0
+,CHRIS THEIS,2024 GOLDEN DESERT DEBATE TOURNAMENT AT UNLV,HS,2024-02-03,VLD,6 R6,Peninsula AB,Harker SY,Aff,
+,CHRIS THEIS,2024 GOLDEN DESERT DEBATE TOURNAMENT AT UNLV,HS,2024-02-03,VLD,6 R6,Brophy TJ,Peninsula SU,Neg,
+,CHRIS THEIS,2024 GOLDEN DESERT DEBATE TOURNAMENT AT UNLV,HS,2024-02-03,VLD,4 R4,St Francis ZC,Peninsula AL,Neg,
+,CHRIS THEIS,2024 GOLDEN DESERT DEBATE TOURNAMENT AT UNLV,HS,2024-02-03,VLD,2 R2,Francis Parker RH,Harker NB,Neg,
+,CHRIS THEIS,2024 GOLDEN DESERT DEBATE TOURNAMENT AT UNLV,HS,2024-02-03,VLD,2 R2,Harker SS,Peninsula AY,Neg,
+,CHRIS THEIS,2024 GOLDEN DESERT DEBATE TOURNAMENT AT UNLV,HS,2024-02-03,VLD,1 R1,West Des Moines Valley LS,Harker SS,Neg,
+,CHRIS THEIS,2024 GOLDEN DESERT DEBATE TOURNAMENT AT UNLV,HS,2024-02-03,VLD,1 R1,Loyola TG,Harker SD,Neg,
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2024-01-26,LD,11 MD,American Heritage Broward SS,Lake Highland Prep HL,Neg,Neg 3-0
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2024-01-26,LD,8 WAU,Greenhill SK,Horace Greeley SG,Aff,Aff 2-1
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2024-01-26,LD,7 Triple,Carnegie Vanguard LH,Harvard-Westlake AM,Aff,Aff 3-0
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2024-01-26,LD,5 R5,Carnegie Vanguard LH,Harker VL,Aff,
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2024-01-26,LD,5 R5,Brophy TJ,Harker PG,Aff,
+,CHRIS THEIS,Harvard Westlake Debates,HS,2024-01-11,VLD,9 Octos,Harker AS,Monta Vista KR,Aff,Aff 3-0
+,CHRIS THEIS,Harvard Westlake Debates,HS,2024-01-11,VLD,8 Double,Harker AS,Brophy TJ,Aff,Aff 3-0
+,CHRIS THEIS,Harvard Westlake Debates,HS,2024-01-11,VLD,8 Double,Harker NB,Monta Vista KR,Neg,Neg 3-0
+,CHRIS THEIS,Harvard Westlake Debates,HS,2024-01-11,VLD,7 Triple,Stanford OHS AY,Lynbrook BZ,Neg,Neg 3-0
+,CHRIS THEIS,Harvard Westlake Debates,HS,2024-01-11,VLD,6 R6,Los Altos AK,Harker SY,Aff,
+,CHRIS THEIS,Harvard Westlake Debates,HS,2024-01-11,RR,6 R6,Harker AS,Los Altos AK,Aff,
+,CHRIS THEIS,Harvard Westlake Debates,HS,2024-01-11,RR,5 R5,Los Altos AK,Harker AS,Neg,Neg 2-0
+,CHRIS THEIS,Harvard Westlake Debates,HS,2024-01-11,RR,4 R4,Westridge TW,Harvard-Westlake WL,Neg,
+,CHRIS THEIS,Harvard Westlake Debates,HS,2024-01-11,RR,3 R3,Los Altos AK,Immaculate Heart AW,Aff,Aff 2-0
+,CHRIS THEIS,Harvard Westlake Debates,HS,2024-01-11,RR,2 R2,Immaculate Heart SS,Harvard-Westlake WL,Neg,Neg 2-0
+,CHRIS THEIS,Harvard Westlake Debates,HS,2024-01-11,RR,1 R1,Harker PG,Harvard-Westlake AW,Aff,
+,CHRIS THEIS,Heart of Texas Invitational,HS,2023-10-13,VLD,8 Octas,Harker RA,Lynbrook OM,Neg,Neg 3-0
+,CHRIS THEIS,Heart of Texas Invitational,HS,2023-10-13,VLD,7 Double,Peninsula AB,Harker PG,Neg,Neg 3-0
+,CHRIS THEIS,Heart of Texas Invitational,HS,2023-10-13,VLD,7 Double,Harvard-Westlake KM,Harker RA,Neg,Neg 3-0
+,CHRIS THEIS,Nano Nagle Classic Round Robin,HS,2023-10-06,LD,10 Semifi,Westridge TW,Harker AS,Neg,Neg 3-0
+,CHRIS THEIS,Nano Nagle Classic Round Robin,HS,2023-10-06,LD,9 Quarte,Westridge TW,San Mateo YR,Aff,Aff 2-1
+,CHRIS THEIS,Nano Nagle Classic Round Robin,HS,2023-10-06,LD,8 Octafi,OCSA Independent IL,Westridge TW,Neg,Neg 3-0
+,CHRIS THEIS,Nano Nagle Classic Round Robin,HS,2023-10-06,LD,8 Octafi,Harker PG,Notre Dame San Jose AG,Neg,Aff 2-1
+,CHRIS THEIS,Nano Nagle Classic Round Robin,HS,2023-10-06,LD,7 Double,Lynbrook BZ,BASIS Independent Silicon Valley SK,Neg,Neg 3-0
+,CHRIS THEIS,Nano Nagle Classic Round Robin,HS,2023-10-06,LD,4 R4,Harker KB,Loyola RV,Aff,
+,CHRIS THEIS,Nano Nagle Classic Round Robin,HS,2023-10-06,LD,4 R4,BASIS Independent Silicon Valley SK,Harker SD,Aff,
+,CHRIS THEIS,Nano Nagle Classic Round Robin,HS,2023-10-06,LD,3 R3,Notre Dame San Jose AG,Dougherty Valley SL,Aff,
+,CHRIS THEIS,Nano Nagle Classic Round Robin,HS,2023-10-06,LD,3 R3,Harker LY,Loyola MT,Neg,
+,CHRIS THEIS,Greenhill Fall Classic,HS,2023-09-13,LD RR,8 Finals,Harker AS,Harvard-Westlake WL,Aff,Neg 2-1
+,CHRIS THEIS,Greenhill Fall Classic,HS,2023-09-13,LD,8 Octafi,Harker SS,Monta Vista KR,Neg,Neg 2-1
+,CHRIS THEIS,Greenhill Fall Classic,HS,2023-09-13,LD,7 Double,Peninsula AB,St Agnes EH,Neg,Aff 2-1
+,CHRIS THEIS,Greenhill Fall Classic,HS,2023-09-13,LD RR,7 R7,St Agnes EH,Harker AS,Neg,Neg 2-0
+,CHRIS THEIS,Greenhill Fall Classic,HS,2023-09-13,LD RR,5 R5,Greenhill SL,Heights EP,Aff,Aff 2-0
+,CHRIS THEIS,Greenhill Fall Classic,HS,2023-09-13,LD RR,3 R3,Notre Dame San Jose AG,Harker PG,Aff,
+,CHRIS THEIS,Greenhill Fall Classic,HS,2023-09-13,LD,3 R3,Kinkaid SZ,Peninsula AB,Neg,
+,CHRIS THEIS,Greenhill Fall Classic,HS,2023-09-13,LD,3 R3,St Agnes CL,Lynbrook BZ,Neg,
+,CHRIS THEIS,Greenhill Fall Classic,HS,2023-09-13,LD,1 R1,Monta Vista KR,Concord Carlisle FZ,Neg,
+,CHRIS THEIS,Greenhill Fall Classic,HS,2023-09-13,LD,1 R1,Greenhill MA,Immaculate Heart AW,Neg,
+,CHRIS THEIS,Victory Briefs Institute Los Angeles,,2023-08-10,TOCLD,7 QF,Easton Peters,Jason Kuo,Neg,Neg 2-1
+,CHRIS THEIS,Tournament of Champions,HS,2023-04-15,LD,9 Quarte,Harker MK,Strath Haven AM,Neg,Aff 2-1
+,CHRIS THEIS,Tournament of Champions,HS,2023-04-15,LD,7 Dbls,Southlake Carroll EP,Harker AS,Neg,Neg 3-0
+,CHRIS THEIS,Tournament of Champions,HS,2023-04-15,LD,6 R6,Plano East AW,BASIS Peoria PY,Neg,
+,CHRIS THEIS,Tournament of Champions,HS,2023-04-15,LD,5 R5,Strath Haven AM,Harker MK,Aff,
+,CHRIS THEIS,Tournament of Champions,HS,2023-04-15,LD,3 R3,Harker PG,Unionville AS,Aff,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2023-03-25,LD,8 Octos,Harvard-Westlake IC,Harker RM,Neg,Neg 3-0
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2023-03-25,LD,8 Octos,Strake Jesuit JW,Harker PG,Neg,Neg 3-0
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2023-03-25,LD,7 Dbls,Greenhill SL,Strake Jesuit KS,Neg,Neg 2-1
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2023-03-25,LD,7 Dbls,Harker RM,Immaculate Heart RR,Aff,Aff 3-0
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2023-03-25,LD,5 R5,Harker KB,Immaculate Heart RR,Aff,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2023-03-25,LD,5 R5,Strake Jesuit KS,Harker AS,Neg,
+,CHRIS THEIS,California Invitational Berkeley Debate,HS,2023-02-18,VLD,9 Octos,Strath Haven AM,Honor VD,Aff,Neg 2-1
+,CHRIS THEIS,California Invitational Berkeley Debate,HS,2023-02-18,VLD,8 Double,Harvard-Westlake IC,Flower Mound ST,Aff,Aff 3-0
+,CHRIS THEIS,California Invitational Berkeley Debate,HS,2023-02-18,VLD,8 Double,Immaculate Heart SS,Peninsula DL,Neg,Neg 3-0
+,CHRIS THEIS,California Invitational Berkeley Debate,HS,2023-02-18,VLD,7 Triple,Notre Dame San Jose AG,Harker DV,Aff,Aff 3-0
+,CHRIS THEIS,California Invitational Berkeley Debate,HS,2023-02-18,VLD,7 Triple,Westridge KY,Harvard-Westlake IC,Neg,Neg 3-0
+,CHRIS THEIS,California Invitational Berkeley Debate,HS,2023-02-18,VLD,6 R6,Harker AP,Mission San Jose SS,Neg,
+,CHRIS THEIS,California Invitational Berkeley Debate,HS,2023-02-18,VLD,6 R6,Westridge TW,Peninsula DL,Neg,
+,CHRIS THEIS,California Invitational Berkeley Debate,HS,2023-02-18,VLD,5 R5,Immaculate Heart SS,Harker PG,Neg,
+,CHRIS THEIS,California Invitational Berkeley Debate,HS,2023-02-18,VLD,5 R5,Harker KB,Strath Haven AM,Aff,
+,CHRIS THEIS,California Round Robin,HS,2023-02-16,PF RR,6 Semis,Edina JS,Flintridge Prep CY,Pro,Pro 3-0
+,CHRIS THEIS,California Round Robin,HS,2023-02-16,LD RR,5 R5,Monta Vista RD,McNeil AG,Aff,
+,CHRIS THEIS,California Round Robin,HS,2023-02-16,PF RR,4 R4,Edina JS,College Prep BP,Pro,Pro 2-0
+,CHRIS THEIS,California Round Robin,HS,2023-02-16,PF RR,4 R4,Westlake KP,L C Anderson BC,Con,Con 2-0
+,CHRIS THEIS,California Round Robin,HS,2023-02-16,LD RR,3 R3,Monta Vista KR,Coppell HA,Aff,
+,CHRIS THEIS,California Round Robin,HS,2023-02-16,LD RR,3 R3,McNeil AG,Lynbrook SY,Neg,
+,CHRIS THEIS,California Round Robin,HS,2023-02-16,LD RR,2 R2,Coppell HA,Silver Creek KZ,Aff,Aff 2-0
+,CHRIS THEIS,California Round Robin,HS,2023-02-16,LD RR,2 R2,Notre Dame San Jose AG,Monta Vista KR,Neg,Neg 2-0
+,CHRIS THEIS,California Round Robin,HS,2023-02-16,LD RR,1 R1,Silver Creek KZ,Notre Dame San Jose AG,Neg,Neg 2-0
+,CHRIS THEIS,California Round Robin,HS,2023-02-16,LD RR,1 R1,Lynbrook SY,Monta Vista RD,Aff,Aff 2-0
+,CHRIS THEIS,Golden Desert Debate Tournament 2023 at UNLV,HS,2023-02-04,VLD,9 Quarte,Harker SY,Lynbrook SY,Aff,Neg 2-1
+,CHRIS THEIS,Golden Desert Debate Tournament 2023 at UNLV,HS,2023-02-04,VLD,8 Octos,Lynbrook SY,Peninsula AB,Aff,Aff 3-0
+,CHRIS THEIS,Golden Desert Debate Tournament 2023 at UNLV,HS,2023-02-04,VLD,8 Octos,Harker SY,Peninsula SL,Aff,Aff 3-0
+,CHRIS THEIS,Golden Desert Debate Tournament 2023 at UNLV,HS,2023-02-04,VLD,6 R6,Newman Smith SJ,Brophy TJ,Neg,
+,CHRIS THEIS,Golden Desert Debate Tournament 2023 at UNLV,HS,2023-02-04,VLD,6 R6,Harker VL,Peninsula KN,Neg,
+,CHRIS THEIS,Golden Desert Debate Tournament 2023 at UNLV,HS,2023-02-04,VLD,4 R4,Lynbrook MD,Immaculate Heart NH,Aff,
+,CHRIS THEIS,Golden Desert Debate Tournament 2023 at UNLV,HS,2023-02-04,VLD,2 R2,Peninsula AB,Polytechnic AT,Aff,
+,CHRIS THEIS,Golden Desert Debate Tournament 2023 at UNLV,HS,2023-02-04,VLD,2 R2,Independent Hamilton AL,Peninsula AI,Aff,
+,CHRIS THEIS,Alta Silver Black,HS,2022-12-01,LD,8 Quarte,Harvard-Westlake LS,Notre Dame San Jose AG,Neg,Neg 2-1
+,CHRIS THEIS,Alta Silver Black,HS,2022-12-01,LD,6 R6,Corner Canyon MT,West HS SLC BT,Neg,
+,CHRIS THEIS,Alta Silver Black,HS,2022-12-01,LD,5 R5,Delphian CC,Corner Canyon BF,Neg,
+,CHRIS THEIS,Alta Silver Black,HS,2022-12-01,LD,4 R4,Eagle AA,Harvard-Westlake NL,Neg,
+,CHRIS THEIS,Alta Silver Black,HS,2022-12-01,LD,4 R4,South Eugene KS,Harvard-Westlake LS,Aff,
+,CHRIS THEIS,The Meadows Invitational,HS,2022-10-28,VLD,10 Semis,Immaculate Heart AW,Notre Dame San Jose AG,Neg,Neg 3-0
+,CHRIS THEIS,The Meadows Invitational,HS,2022-10-28,VLD,9 Quarte,Harvard-Westlake WL,Damien HS and St. Lucy’s Priory AM,Neg,Neg 3-0
+,CHRIS THEIS,The Meadows Invitational,HS,2022-10-28,VLD,8 Octos,Notre Dame San Jose AG,Peninsula AY,Neg,Aff 2-1
+,CHRIS THEIS,The Meadows Invitational,HS,2022-10-28,VLD,8 Octos,Immaculate Heart SS,Harvard-Westlake WL,Neg,Neg 3-0
+,CHRIS THEIS,The Meadows Invitational,HS,2022-10-28,VLD,6 R6,Westridge TW,Aragon ZA,Aff,
+,CHRIS THEIS,The Meadows Invitational,HS,2022-10-28,VLD,1 R1,Riley Rees,Harvard-Westlake WL,Aff,
+,CHRIS THEIS,The Meadows Invitational,HS,2022-10-28,VLD,1 R1,Immaculate Heart SS,Harvard-Westlake MT,Neg,
+,CHRIS THEIS,Heart of Texas Invitational hosted by St Marks,HS,2022-10-21,VLD,8 Octas,Greenhill SL,Harker PG,Neg,Neg 3-0
+,CHRIS THEIS,Heart of Texas Invitational hosted by St Marks,HS,2022-10-21,VLD,7 Double,Harvard-Westlake WL,Harker SS,Neg,Aff 2-1
+,CHRIS THEIS,Heart of Texas Invitational hosted by St Marks,HS,2022-10-21,VLD,7 Double,Lynbrook SY,Dwight-Englewood EK,Aff,Aff 2-1
+,CHRIS THEIS,Heart of Texas Invitational hosted by St Marks,HS,2022-10-21,VLD,6 R6,Strake Jesuit JS,Harvard-Westlake WL,Aff,
+,CHRIS THEIS,Heart of Texas Invitational hosted by St Marks,HS,2022-10-21,VLD,6 R6,Strake Jesuit KM,Clear Lake AA,Neg,
+,CHRIS THEIS,Heart of Texas Invitational hosted by St Marks,HS,2022-10-21,VLD,5 R5,Lynbrook SY,Strake Jesuit JW,Neg,
+,CHRIS THEIS,Heart of Texas Invitational hosted by St Marks,HS,2022-10-21,VLD,5 R5,Harvard-Westlake AT,McNeil YM,Neg,
+,CHRIS THEIS,Nano Nagle Classic RR,HS,2022-10-07,LD,10 Semifi,Prospect ST,Strath Haven AM,Neg,Neg 2-1
+,CHRIS THEIS,Nano Nagle Classic RR,HS,2022-10-07,LD,9 Quarte,Monta Vista RD,Prospect ST,Neg,Neg 2-1
+,CHRIS THEIS,Nano Nagle Classic RR,HS,2022-10-07,LD,8 Octafi,Strath Haven AM,Harker SY,Aff,Aff 3-0
+,CHRIS THEIS,Nano Nagle Classic RR,HS,2022-10-07,LD,8 Octafi,Notre Dame San Jose AG,Saratoga AG,Aff,Aff 2-1
+,CHRIS THEIS,Nano Nagle Classic RR,HS,2022-10-07,LD,6 R6,Riley Rees,San Mateo YR,Neg,
+,CHRIS THEIS,Nano Nagle Classic RR,HS,2022-10-07,LD RR,6 R6,Harker AS,Riley Rees,Aff,
+,CHRIS THEIS,Nano Nagle Classic RR,HS,2022-10-07,LD,5 R5,Prospect ST,St Agnes EH,Neg,
+,CHRIS THEIS,Nano Nagle Classic RR,HS,2022-10-07,LD,5 R5,Harker RA,BASIS Independent School Silicon Valley JK,Aff,
+,CHRIS THEIS,Nano Nagle Classic RR,HS,2022-10-07,LD RR,5 R5,Harker AS,Lynbro SY,Aff,
+,CHRIS THEIS,Nano Nagle Classic RR,HS,2022-10-07,LD,4 R4,Immaculate Heart EL,Westridge KY,Neg,
+,CHRIS THEIS,Nano Nagle Classic RR,HS,2022-10-07,LD,4 R4,Harker AV,Mission San Jose AD,Neg,
+,CHRIS THEIS,Nano Nagle Classic RR,HS,2022-10-07,LD RR,3 R3,Riley Rees,NDSJ AG,Aff,
+,CHRIS THEIS,Nano Nagle Classic RR,HS,2022-10-07,LD,2 R2,Harker SS,Immaculate Heart EL,Neg,
+,CHRIS THEIS,Nano Nagle Classic RR,HS,2022-10-07,LD,2 R2,Stanford OHS AY,Strath Haven AM,Neg,
+,CHRIS THEIS,Nano Nagle Classic RR,HS,2022-10-07,LD,1 R1,Immaculate Heart MF,Harker PG,Neg,
+,CHRIS THEIS,Nano Nagle Classic RR,HS,2022-10-07,LD RR,1 R1,Lynbro SY,SilCre KZ,Neg,
+,CHRIS THEIS,Nano Nagle Classic RR,HS,2022-10-07,LD,1 R1,Harker NK,Immaculate Heart SS,Neg,
+,CHRIS THEIS,Greenhill Fall Classic,HS,2022-09-15,LD,9 Quarte,Monta Vista RD,Strake Jesuit JW,Neg,Neg 3-0
+,CHRIS THEIS,Greenhill Fall Classic,HS,2022-09-15,LD,8 Octafi,Saratoga AG,Plano East NG,Neg,Neg 3-0
+,CHRIS THEIS,Greenhill Fall Classic,HS,2022-09-15,LD,7 Double,Harker SS,Strake Jesuit JW,Neg,Neg 3-0
+,CHRIS THEIS,Greenhill Fall Classic,HS,2022-09-15,LD,5 R5,Monta Vista KR,Iowa City West ST,Aff,
+,CHRIS THEIS,Greenhill Fall Classic,HS,2022-09-15,LD,4 R4,Harker RM,Unionville AS,Aff,
+,CHRIS THEIS,Greenhill Fall Classic,HS,2022-09-15,LD,3 R3,L C Anderson NW,Winston Churchill PH,Neg,
+,CHRIS THEIS,Greenhill Fall Classic,HS,2022-09-15,LD,2 R2,Providence Senior AK,Strake Jesuit JS,Neg,
+,CHRIS THEIS,Greenhill Fall Classic,HS,2022-09-15,LD,1 R1,Meadow Glen VW,St Agnes EH,Neg,
+,CHRIS THEIS,VBILD,,2022-07-06,O LD,4 R4,Jonah Mathew,Isabella White,Neg,
+,CHRIS THEIS,VBILD,,2022-07-06,O LD,3 R3,Ash Bu,Siddharth Ramanathan,Aff,
+,CHRIS THEIS,Tournament of Champions,HS,2022-04-23,LD,8 Double,Orange Lutheran AZ,Strake Jesuit KS,Aff,Neg 2-1
+,CHRIS THEIS,Tournament of Champions,HS,2022-04-23,LD,6 R6,BASIS Peoria PY,Plano East NG,Neg,
+,CHRIS THEIS,Tournament of Champions,HS,2022-04-23,LD,5 R5,Strake Jesuit JS,Sage Hill MP,Neg,
+,CHRIS THEIS,Tournament of Champions,HS,2022-04-23,LD,2 R2,San Mateo YR,Coppell HA,Aff,
+,CHRIS THEIS,California Round Robin,HS,2022-02-17,LD RR,7 R7,Peninsula RM,Strath Haven AM,Neg,Neg 2-0
+,CHRIS THEIS,California Round Robin,HS,2022-02-17,PF RR,5 R5,College Prep HP,Oakwood BT,Pro,Pro 2-0
+,CHRIS THEIS,California Round Robin,HS,2022-02-17,LD RR,4 R4,Saratoga AG,Isidore Newman EE,Neg,
+,CHRIS THEIS,California Round Robin,HS,2022-02-17,LD RR,4 R4,Strath Haven AM,Mission San Jose SR,Neg,Neg 2-0
+,CHRIS THEIS,California Round Robin,HS,2022-02-17,LD RR,3 R3,Diamond Bar NC,Ayala AM,Neg,Neg 2-0
+,CHRIS THEIS,California Round Robin,HS,2022-02-17,LD RR,2 R2,Navya Simha,Peninsula RM,Neg,Neg 2-0
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2022-01-28,LD,8 WAU,Strake Jesuit JW,Orange Lutheran AZ,Aff,Aff 3-0
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2022-01-28,LD,7 LD Tri,Orange Lutheran AZ,Immaculate Heart BC,Aff,Aff 2-1
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2022-01-28,LD,4 R4,Strake Jesuit JK,West Des Moines Valley SJ,Neg,
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2022-01-28,LD,1 R1,Mercer Island KS,Ayala AM,Neg,
+,CHRIS THEIS,Harvard Westlake Debates,HS,2022-01-13,VLDO,7 Double,Tanya Wei,Harker RM,Neg,Neg 3-0
+,CHRIS THEIS,Harvard Westlake Debates,HS,2022-01-13,VLDO,7 Double,OraLut AZ,Harker RT,Neg,Neg 3-0
+,CHRIS THEIS,Harvard Westlake Debates,HS,2022-01-13,CHAL,6 R6,Ayala AM,IsiNew EE,Aff,Aff 2-0
+,CHRIS THEIS,Harvard Westlake Debates,HS,2022-01-13,VLDO,6 R6,Penins JX,Meadow BV,Aff,
+,CHRIS THEIS,Harvard Westlake Debates,HS,2022-01-13,CHAL,4 R4,Prospe ST,SagHil MP,Aff,
+,CHRIS THEIS,Harvard Westlake Debates,HS,2022-01-13,CHAL,3 R3,HarWes IC,Sequoi AS,Neg,Neg 2-0
+,CHRIS THEIS,Harvard Westlake Debates,HS,2022-01-13,CHAL,2 R2,Westwo PM,SouCar PK,Neg,
+,CHRIS THEIS,Harvard Westlake Debates,HS,2022-01-13,CHAL,1 R1,ImmHea JL,HarWes KD,Aff,Aff 2-0
+,CHRIS THEIS,Mid America Cup,HS,2021-09-24,VLD,11 Semis,San Mateo Yesh Rao,Harrison Ali Ahmad,Aff,Aff 2-1
+,CHRIS THEIS,Mid America Cup,HS,2021-09-24,VLD,10 Quarte,Mission San Jose Saranya Singh,Strake Jesuit Karan Shah,Aff,Aff 3-0
+,CHRIS THEIS,Mid America Cup,HS,2021-09-24,VLD,9 Octos,Harrison Ali Ahmad,Sequoia Alyssa Sawyer,Neg,Aff 2-1
+,CHRIS THEIS,Mid America Cup,HS,2021-09-24,VLD,9 Octos,Plano Independent Nathan Gong,San Mateo Yesh Rao,Neg,Neg 3-0
+,CHRIS THEIS,Mid America Cup,HS,2021-09-24,VLD,8 Double,Shreyas Kaps,Harrison Jessie Pein,Neg,Aff 2-1
+,CHRIS THEIS,Mid America Cup,HS,2021-09-24,VLD,4 R4,Strake Jesuit Justin Wen,Sage Max Perin,Neg,
+,CHRIS THEIS,Mid America Cup,HS,2021-09-24,VLD,2 R2,Strake Jesuit Karan Shah,Rosemount Cierra Phillips,Aff,
+,CHRIS THEIS,Mid America Cup,HS,2021-09-24,VLD,2 R2,Muzzi Khan,Proof Dhruv Raghavan,Aff,
+,CHRIS THEIS,Mid America Cup,HS,2021-09-24,VLD,1 R1,Millard North Evan Burns,Strake Jesuit Vail Chen,Neg,
+,CHRIS THEIS,Greenhill Fall Classic,HS,2021-09-16,LD,11 Finals,Strake Jesuit ZD,Harker DS,Neg,Aff 2-1
+,CHRIS THEIS,Greenhill Fall Classic,HS,2021-09-16,LD,10 Semifi,Southlake Carroll PK,Harker DS,Neg,Neg 3-0
+,CHRIS THEIS,Greenhill Fall Classic,HS,2021-09-16,LD,8 Octafi,Strake Jesuit ZD,Peninsula RM,Aff,Aff 3-0
+,CHRIS THEIS,Greenhill Fall Classic,HS,2021-09-16,LD,7 Double,Plano East NG,Immaculate Heart BC,Aff,Aff 2-1
+,CHRIS THEIS,Greenhill Fall Classic,HS,2021-09-16,LD,6 R6,Strake Jesuit DL,Westwood PM,Neg,
+,CHRIS THEIS,Greenhill Fall Classic,HS,2021-09-16,LD,5 R5,Southlake Carroll PK,Strath Haven AM,Aff,
+,CHRIS THEIS,Greenhill Fall Classic,HS,2021-09-16,LD,4 R4,Harker KB,Peninsula SM,Aff,
+,CHRIS THEIS,Greenhill Fall Classic,HS,2021-09-16,LD,3 R3,Strake Jesuit ZD,Harker DV,Aff,
+,CHRIS THEIS,Greenhill Fall Classic,HS,2021-09-16,LD,2 R2,Plano East AW,Harvard-Westlake IC,Aff,
+,CHRIS THEIS,Greenhill Fall Classic,HS,2021-09-16,LD,1 R1,Coppell HA,Sequoia AS,Neg,
+,CHRIS THEIS,VBI LA,,2021-08-13,OLD,7 Semis,Alex Torrez,Brock Dodds,Aff,Neg 2-1
+,CHRIS THEIS,VBI LA,,2021-08-13,OLD,6 R6,Eric Chen,Junue Jang,Aff,
+,CHRIS THEIS,VBI LA,,2021-08-13,OLD,5 R5,Omar Elsakhawy,Panav Gogte,Aff,
+,CHRIS THEIS,VBI LA,,2021-08-13,OLD,2 R2,Vienna Panossian,Claire Conner,Aff,
+,CHRIS THEIS,VBI LA,,2021-08-13,OLD,1 R1,Vincent Zhang,Brock Dodds,Neg,
+,CHRIS THEIS,VBI PHL ONLINE,,2021-07-08,LD,5 R5,Chloe Chun,Gabriela Adler,Aff,
+,CHRIS THEIS,VBI PHL ONLINE,,2021-07-08,LD,4 R4,Saloni Singhal,Dhruti Shah,Neg,
+,CHRIS THEIS,VBI PHL ONLINE,,2021-07-08,LD,3 R3,Neil Kumar,Kyra Terez,Aff,
+,CHRIS THEIS,NCFL Grand Nationals,HS,2021-05-26,LD,6 Trips,Cary EW,Upper St Clair SD,Aff,Aff 3-0
+,CHRIS THEIS,NCFL Grand Nationals,HS,2021-05-26,LD,5 5,Cary RG,Palm Beach Central MM,Aff,Aff 2-1
+,CHRIS THEIS,NCFL Grand Nationals,HS,2021-05-26,LD,4 4,Spanish River MS,Archbishop Molloy AK,Aff,Aff 3-0
+,CHRIS THEIS,NCFL Grand Nationals,HS,2021-05-26,LD,3 3,Oak Ridge AB,Regis AM,Aff,Aff 2-1
+,CHRIS THEIS,NCFL Grand Nationals,HS,2021-05-26,LD,2 2,Noah Williamson,Woodrow Wilson CO,Aff,Neg 2-1
+,CHRIS THEIS,NCFL Grand Nationals,HS,2021-05-26,LD,1 1,Cape Fear KM,Lawrence TL,Aff,Aff 2-1
+,CHRIS THEIS,Tournament of Champions,HS,2021-04-17,LD,8 Octos,Immaculate Heart BC,Harrison AA,Aff,Aff 2-1
+,CHRIS THEIS,Tournament of Champions,HS,2021-04-17,LD,7 Double,Greenhill VG,Immaculate Heart JL,Neg,Neg 2-1
+,CHRIS THEIS,Tournament of Champions,HS,2021-04-17,LD,6 R6,Harker AM,Harrison GC,Aff,
+,CHRIS THEIS,Tournament of Champions,HS,2021-04-17,LD,5 R5,Harrison AA,Strake Jesuit KS,Neg,
+,CHRIS THEIS,Tournament of Champions,HS,2021-04-17,LD,3 R3,Success Academy HS - Liberal Arts SB,BASIS San Antonio Shavano PK,Neg,
+,CHRIS THEIS,Tournament of Champions,HS,2021-04-17,LD,2 R2,Strake Jesuit DH,Plano East NG,Neg,
+,CHRIS THEIS,Tournament of Champions,HS,2021-04-17,LD,2 R2,Peninsula AR,Northwood NA,Neg,
+,CHRIS THEIS,Tournament of Champions,HS,2021-04-17,LD,1 R1,Harvard-Westlake SM,Harker AL,Aff,
+,CHRIS THEIS,Tournament of Champions,HS,2020-04-17,LD,8 Octafi,Montgomery Blair PZ,Strake Jesuit WH,Aff,Aff 2-1
+,CHRIS THEIS,Tournament of Champions,HS,2020-04-17,LD,7 Double,Harker AL,Strake Jesuit AMe,Aff,Neg 2-1
+,CHRIS THEIS,Tournament of Champions,HS,2020-04-17,LD,5 R5,Parker HK,Harker AR,Neg,
+,CHRIS THEIS,Tournament of Champions,HS,2020-04-17,LD,3 R3,Strake Jesuit BE,Harker KM,Neg,
+,CHRIS THEIS,Tournament of Champions,HS,2020-04-17,LD,2 R2,Marlborough JS,Harrison GC,Aff,
+,CHRIS THEIS,Tournament of Champions,HS,2020-04-17,LD,1 R1,Greenhill AZ,Harker AL,Neg,
+,CHRIS THEIS,Isidore Newman Online LD Round Robin,HS,2020-04-13,LDRR,5 R5,Holy Cross TJ,Damien ND,Neg,Neg 2-0
+,CHRIS THEIS,Isidore Newman Online LD Round Robin,HS,2020-04-13,LDRR,2 R2,Durham JP,Montgomery CD,Aff,
+,CHRIS THEIS,Isidore Newman Online LD Round Robin,HS,2020-04-13,LDRR,1 R1,Trinity Valley KK,Isidore Newman JH,Aff,Aff 2-0
+,CHRIS THEIS,Harvard Round Robin 2020,HS,2020-02-14,LDRR,6 Semis,Strake BE,Houston Memorial AQ,Aff,Neg 2-1
+,CHRIS THEIS,Harvard Round Robin 2020,HS,2020-02-14,LDRR,5 R5,AmeHer PB,Whitman BW,Neg,Neg 2-0
+,CHRIS THEIS,Harvard Round Robin 2020,HS,2020-02-14,LDRR,4 R4,Harrison AZ,Taj Louree Robinson,Aff,Aff 2-0
+,CHRIS THEIS,Harvard Round Robin 2020,HS,2020-02-14,LDRR,3 R3,Strake BE,Scarsdale CC,Aff,Aff 2-0
+,CHRIS THEIS,Harvard Round Robin 2020,HS,2020-02-14,LDRR,2 R2,Millburn AH,Strake BE,Neg,Neg 2-0
+,CHRIS THEIS,Harvard Round Robin 2020,HS,2020-02-14,LDRR,1 R1,William G. Enloe TG,Legacy BP,Aff,Aff 2-0
+,CHRIS THEIS,46th Annual Harvard National Forensics Tournament,HS,2020-02-13,VLD,10 Quarte,Taj Louree Robinson,Strake Jesuit BE,Neg,Aff 2-1
+,CHRIS THEIS,46th Annual Harvard National Forensics Tournament,HS,2020-02-13,VLD,7 Triple,Montgomery Blair PZ,Strake Jesuit JP,Neg,Aff 2-1
+,CHRIS THEIS,46th Annual Harvard National Forensics Tournament,HS,2020-02-13,VLD,6 R6,Montgomery Blair PZ,Harrison RA,Aff,
+,CHRIS THEIS,46th Annual Harvard National Forensics Tournament,HS,2020-02-13,VLD,6 R6,Walt Whitman BW,Evanston Twp HE,Aff,
+,CHRIS THEIS,46th Annual Harvard National Forensics Tournament,HS,2020-02-13,VLD,5 R5,Harrison MR,Lake Travis AO,Aff,
+,CHRIS THEIS,46th Annual Harvard National Forensics Tournament,HS,2020-02-13,VLD,5 R5,Harrison GC,Scarsdale WC,Aff,
+,CHRIS THEIS,46th Annual Harvard National Forensics Tournament,HS,2020-02-13,VLD,4 R4,Vestavia Hills RC,Harrison MB,Neg,
+,CHRIS THEIS,46th Annual Harvard National Forensics Tournament,HS,2020-02-13,VLD,4 R4,Strake Jesuit ZD,North Allegheny AD,Aff,
+,CHRIS THEIS,46th Annual Harvard National Forensics Tournament,HS,2020-02-13,VLD,3 R3,Success Academy Manhattan CE,Seattle SZ,Aff,
+,CHRIS THEIS,46th Annual Harvard National Forensics Tournament,HS,2020-02-13,VLD,3 R3,Henry W Grady EH,Bergen County Academies MS,Neg,
+,CHRIS THEIS,46th Annual Harvard National Forensics Tournament,HS,2020-02-13,VLD,2 R2,Houston Memorial YB,Carmel Valley Independent EP,Neg,
+,CHRIS THEIS,46th Annual Harvard National Forensics Tournament,HS,2020-02-13,VLD,1 R1,Scarsdale BM,Henry W Grady GR,Neg,
+,CHRIS THEIS,46th Annual Harvard National Forensics Tournament,HS,2020-02-13,VLD,1 R1,Lake Travis VM,Harrison EM,Neg,
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2020-01-24,LD,8 RKR,Dougherty Valley KK,Strake Jesuit ZD,Neg,Neg 3-0
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2020-01-24,LD,7 WAU,Evanston Twp QH,University MW,Neg,Aff 2-1
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2020-01-24,LD,6 R6,Greenhill KD,Harker SS,Neg,
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2020-01-24,LD,5 R5,La Salle TW,Northland Christian AB,Aff,
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2020-01-24,LD,5 R5,Southlake Carroll TR,Northland Christian JQ,Aff,
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2020-01-24,LD,4 R4,Strake Jesuit ZD,Colleyville Heritage AB,Aff,
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2020-01-24,LD,4 R4,Needham ZL,Harvard-Westlake SM,Neg,
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2020-01-24,LD,3 R3,Strath Haven WL,University MW,Neg,
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2020-01-24,LD,3 R3,Auburn MF,DuPont Manual RP,Aff,
+,CHRIS THEIS,Big Lex,HS,2020-01-18,VLD,3 R3,Princeton TK,Harrison AK,Neg,
+,CHRIS THEIS,Big Lex,HS,2020-01-18,VLD,3 R3,Montgomery Blair PZ,Acton-Boxborough OH,Aff,
+,CHRIS THEIS,Big Lex,HS,2020-01-18,VLD,2 R2,Needham VF,Chaminade MB,Aff,
+,CHRIS THEIS,Big Lex,HS,2020-01-18,VLD,2 R2,Chaminade MD,Bronx Science LM,Neg,
+,CHRIS THEIS,Big Lex,HS,2020-01-18,VLD,1 R1,Strake Jesuit ZD,Chaminade NB,Aff,
+,CHRIS THEIS,Big Lex,HS,2020-01-18,VLD,1 R1,Chaminade JV,Acton-Boxborough CX,Neg,
+,CHRIS THEIS,John Edie Holiday Debates Hosted by The Blake School,HS,2019-12-20,LD,8 Double,Vestavia Hills RC,West Des Moines Valley AJ,Neg,Neg 3-0
+,CHRIS THEIS,John Edie Holiday Debates Hosted by The Blake School,HS,2019-12-20,LD,7 Triple,Edina AV,Scarsdale VG,Aff,Neg 2-1
+,CHRIS THEIS,John Edie Holiday Debates Hosted by The Blake School,HS,2019-12-20,LD,6 R6,Walt Whitman BW,Taj Louree Robinson,Neg,
+,CHRIS THEIS,John Edie Holiday Debates Hosted by The Blake School,HS,2019-12-20,LD,5 R5,St.Petersburg JM,Newark Science TO,Neg,
+,CHRIS THEIS,John Edie Holiday Debates Hosted by The Blake School,HS,2019-12-20,LD,5 R5,Edina AV,West Des Moines Valley LG,Aff,
+,CHRIS THEIS,John Edie Holiday Debates Hosted by The Blake School,HS,2019-12-20,LD,4 R4,Scarsdale VG,West Des Moines Valley IN,Neg,
+,CHRIS THEIS,John Edie Holiday Debates Hosted by The Blake School,HS,2019-12-20,LD,3 R3,Newark Science SB,West Des Moines Valley SG,Aff,
+,CHRIS THEIS,John Edie Holiday Debates Hosted by The Blake School,HS,2019-12-20,LD,2 R2,Vestavia Hills RC,Minnetonka AJ,Aff,
+,CHRIS THEIS,John Edie Holiday Debates Hosted by The Blake School,HS,2019-12-20,LD,2 R2,Montgomery Blair PZ,Greenhill AA,Aff,
+,CHRIS THEIS,John Edie Holiday Debates Hosted by The Blake School,HS,2019-12-20,LD,1 R1,Okoboji TA,Minnetonka CL,Aff,
+,CHRIS THEIS,John Edie Holiday Debates Hosted by The Blake School,HS,2019-12-20,LD,1 R1,Strath Haven WL,Evanston Twp QH,Neg,
+,CHRIS THEIS,New York City Invitational Debate and Speech Tournament,HS,2019-10-18,LD,11 Quarte,Needham ZL,Harrison GC,Aff,Aff 3-0
+,CHRIS THEIS,New York City Invitational Debate and Speech Tournament,HS,2019-10-18,LD,9 Sextod,Quarry Lane ZD,Walt Whitman BW,Neg,Aff 2-1
+,CHRIS THEIS,New York City Invitational Debate and Speech Tournament,HS,2019-10-18,LD,8 Runoff,Acton-Boxborough RHS Independent CX,Legacy Christian BP,Neg,Neg 3-0
+,CHRIS THEIS,New York City Invitational Debate and Speech Tournament,HS,2019-10-18,LD,7 R7,La Salle TW,Pembroke Pines Charter MC,Neg,
+,CHRIS THEIS,New York City Invitational Debate and Speech Tournament,HS,2019-10-18,LD,5 R5,Harrison MB,Millburn RB,Aff,
+,CHRIS THEIS,New York City Invitational Debate and Speech Tournament,HS,2019-10-18,LD,5 R5,Harrison MH,Bronx Science SA,Neg,
+,CHRIS THEIS,New York City Invitational Debate and Speech Tournament,HS,2019-10-18,LD,4 R4,Montgomery Blair PZ,Harrison RA,Aff,
+,CHRIS THEIS,New York City Invitational Debate and Speech Tournament,HS,2019-10-18,LD,3 R3,Success Academy Manhattan BC,Bergen County Academies AK,Neg,
+,CHRIS THEIS,New York City Invitational Debate and Speech Tournament,HS,2019-10-18,LD,3 R3,Scarsdale ZS,Harrison AK,Aff,
+,CHRIS THEIS,New York City Invitational Debate and Speech Tournament,HS,2019-10-18,LD,2 R2,Brentwood SD,Success Academy Manhattan SB,Neg,
+,CHRIS THEIS,New York City Invitational Debate and Speech Tournament,HS,2019-10-18,LD,2 R2,Harrison AA,Syosset JL,Aff,
+,CHRIS THEIS,New York City Invitational Debate and Speech Tournament,HS,2019-10-18,LD,1 R1,North Allegheny BL,Pembroke Pines Charter JD,Neg,
+,CHRIS THEIS,New York City Invitational Debate and Speech Tournament,HS,2019-10-18,LD,1 R1,Immaculate Heart FP,Hunter NV,Aff,
+,CHRIS THEIS,Yale Invitational,HS,2019-09-13,VLD,7 Trips,Montgomery Blair PZ,Mountain House IV,Aff,Aff 3-0
+,CHRIS THEIS,Yale Invitational,HS,2019-09-13,VLD,7 Trips,Westview RS,Nikita Tanguturi,Aff,Aff 2-1
+,CHRIS THEIS,Yale Invitational,HS,2019-09-13,VLD,6 R6,West Des Moines Valley AJ,Stuyvesant MP,Aff,
+,CHRIS THEIS,Yale Invitational,HS,2019-09-13,VLD,6 R6,Needham ZL,Westview AM,Aff,
+,CHRIS THEIS,Yale Invitational,HS,2019-09-13,VLD,5 R5,Freehold Township SA,Bronx Science JB,Aff,
+,CHRIS THEIS,Yale Invitational,HS,2019-09-13,VLD,4 R4,Pembroke Pines Charter JD,Needham WC,Aff,
+,CHRIS THEIS,Yale Invitational,HS,2019-09-13,VLD,2 R2,Bronx Science WF,Thomas Jefferson HSST TB,Neg,
+,CHRIS THEIS,Yale Invitational,HS,2019-09-13,VLD,1 R1,West Des Moines Valley JW,Stuyvesant LH,Aff,
+,CHRIS THEIS,Tournament of Champions,HS,2018-04-28,LD,7 Dbls,Success Academy Manhattan AB,Strake Jesuit College Prep MC,Aff,Aff 3-0
+,CHRIS THEIS,Tournament of Champions,HS,2018-04-28,LD,7 Dbls,Taj Louree Robinson,Harvard-Westlake JN,Aff,Aff 3-0
+,CHRIS THEIS,Tournament of Champions,HS,2018-04-28,LD,5 R5,Taj Louree Robinson,Lake Highland Prep MK,Aff,
+,CHRIS THEIS,Tournament of Champions,HS,2018-04-28,LD,4 R4,North Hollywood JS,Greenhill AM,Neg,
+,CHRIS THEIS,Tournament of Champions,HS,2018-04-28,LD,3 R3,Winston Churchill WC,Harvard-Westlake IP,Neg,
+,CHRIS THEIS,Tournament of Champions,HS,2018-04-28,LD,3 R3,Success Academy Manhattan AB,Harvard-Westlake SK,Aff,
+,CHRIS THEIS,Glenbrooks Round Robin,HS,2017-11-21,LD RR,4 R4,St.And IB,NewSci BA,Neg,
+,CHRIS THEIS,Heart of Texas Invitational,HS,2017-10-13,LD,8 Octas,Law Magnet MG,Westwood RM,Neg,Neg 2-1
+,CHRIS THEIS,Heart of Texas Invitational,HS,2017-10-13,LD,7 Double,Pine Crest Prep ZV,Strake Jesuit College Prep JH,Aff,Aff 3-0
+,CHRIS THEIS,Heart of Texas Invitational,HS,2017-10-13,LD,7 Double,Law Magnet MG,Harvard-Westlake SK,Aff,Aff 3-0
+,CHRIS THEIS,Heart of Texas Invitational,HS,2017-10-13,LD,6 R6,Harvard-Westlake LM,Kent Denver GR,Aff,
+,CHRIS THEIS,Heart of Texas Invitational,HS,2017-10-13,LD,6 R6,Carroll HS - Southlake GI,Harvard-Westlake AM,Neg,
+,CHRIS THEIS,Heart of Texas Invitational,HS,2017-10-13,LD,5 R5,Harvard-Westlake SK,Strake Jesuit College Prep MC,Neg,
+,CHRIS THEIS,Heart of Texas Invitational,HS,2017-10-13,LD,5 R5,Strake Jesuit College Prep DT,Harvard-Westlake JN,Neg,
+,CHRIS THEIS,Heart of Texas Invitational,HS,2017-10-13,LD,1 R1,Bellarmine College Prep AP,Colleyville Heritage SM,Aff,
+,CHRIS THEIS,Valley Mid America Cup,HS,2017-09-23,VLD,8 Octos,St. Andrew's Episcopal IB,Harrison LC,Aff,Aff 3-0
+,CHRIS THEIS,Valley Mid America Cup,HS,2017-09-23,VLD,7 Double,Lake Highland Prep HK,Santa Monica RE,Neg,Neg 3-0
+,CHRIS THEIS,Valley Mid America Cup,HS,2017-09-23,VLD,7 Double,Lake Highland Prep SG,Lexington VR,Neg,Aff 2-1
+,CHRIS THEIS,Valley Mid America Cup,HS,2017-09-23,VLD,4 R4,Edina RM,Lakeville North NG,Neg,
+,CHRIS THEIS,Valley Mid America Cup,HS,2017-09-23,VLD,3 R3,Lake Highland Prep MS,Lakeville South EH,Neg,
+,CHRIS THEIS,Valley Mid America Cup,HS,2017-09-23,VLD,3 R3,West Des Moines Valley AW,Lake Highland Prep MK,Neg,
+,CHRIS THEIS,Valley Mid America Cup,HS,2017-09-23,VLD,2 R2,Lake Highland Prep MCr,Lexington AF,Neg,
+,CHRIS THEIS,Valley Mid America Cup,HS,2017-09-23,VLD,2 R2,Harker QC,Lake Highland Prep AM,Neg,
+,CHRIS THEIS,Valley Mid America Cup,HS,2017-09-23,VLD,1 R1,Evanston Twp LD,Lexington YZ,Aff,
+,CHRIS THEIS,Valley Mid America Cup,HS,2017-09-23,VLD,1 R1,Lexington SG,Lake Highland Prep JN,Neg,
+,CHRIS THEIS,Tournament of Champions,HS,2017-04-29,LD,6 R6,Harvard-Westlake CE,Scarsdale LS,Aff,
+,CHRIS THEIS,Tournament of Champions,HS,2017-04-29,LD,4 R4,Dulles AW,Scarsdale ML,Aff,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2017-04-08,LD,8 Quarte,Harker SP,Harvard-Westlake EE,Neg,Neg 3-0
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2017-04-08,LD,7 Octas,Harvard-Westlake SP,Marlborough GK,Aff,Aff 3-0
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2017-04-08,LD,5 R5,Harvard-Westlake VC,Harker SS,Aff,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2017-04-08,LD,5 R5,Harvard-Westlake JG,Lexington NN,Neg,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2017-04-08,LD,4 R4,Harker SP,Harvard-Westlake AM,Aff,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2017-04-08,LD,4 R4,Harker QC,Harvard-Westlake WB,Neg,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2017-04-08,LD,3 R3,Harvard-Westlake SP,Marlborough SD,Aff,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2017-04-08,LD,3 R3,Marlborough GN,Harker LF,Aff,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2017-04-08,LD,1 R1,Marlborough ZW,University RH,Neg,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2017-04-08,LD,1 R1,Harvard-Westlake KK,Harker AM,Aff,
+,CHRIS THEIS,John Edie Holiday Debates hosted by Blake,HS,2016-12-16,LD,10 Quarte,Millard North GB,Dulles AW,Aff,Neg 2-1
+,CHRIS THEIS,John Edie Holiday Debates hosted by Blake,HS,2016-12-16,LD,6 R6,Scarsdale ML,New Trier BS,Aff,
+,CHRIS THEIS,John Edie Holiday Debates hosted by Blake,HS,2016-12-16,LD,5 R5,Lexington NK,Evanston Township ES,Aff,
+,CHRIS THEIS,John Edie Holiday Debates hosted by Blake,HS,2016-12-16,LD,5 R5,Oakwood AW,West DM Valley MS,Neg,
+,CHRIS THEIS,John Edie Holiday Debates hosted by Blake,HS,2016-12-16,LD,1 R1,New Trier WT,Lexington VV,Neg,
+,CHRIS THEIS,John Edie Holiday Debates hosted by Blake,HS,2016-12-16,LD,1 R1,Scarsdale LS,Holy Cross RS,Aff,
+,CHRIS THEIS,Apple Valley MinneApple Debate,HS,2016-11-03,VLD,8 Dbls,West Des Moines Valley SC,Dougherty Valley CS,Aff,Neg 2-1
+,CHRIS THEIS,Mid America Cup West Des Moines Valley,HS,2016-09-24,VLD,8 Octos,Harrison RP,Lexington RW,Aff,Aff 3-0
+,CHRIS THEIS,Mid America Cup West Des Moines Valley,HS,2016-09-24,VLD,7 Double,Scarsdale LS,Lake Highland Prep SG,Aff,Aff 3-0
+,CHRIS THEIS,Mid America Cup West Des Moines Valley,HS,2016-09-24,VLD,7 Double,Strake Jesuit CP MC,Mountain View DZ,Neg,Neg 3-0
+,CHRIS THEIS,Mid America Cup West Des Moines Valley,HS,2016-09-24,VLD,6 R6,Harrison RP,Millard North GB,Aff,
+,CHRIS THEIS,Mid America Cup West Des Moines Valley,HS,2016-09-24,VLD,5 R5,Interlake RM,Lexington CC,Neg,
+,CHRIS THEIS,Mid America Cup West Des Moines Valley,HS,2016-09-24,VLD,5 R5,Lexington OR,Eastside Catholic DC,Neg,
+,CHRIS THEIS,Mid America Cup West Des Moines Valley,HS,2016-09-24,VLD,4 R4,Scarsdale LS,Lake Highland Prep SS,Aff,
+,CHRIS THEIS,Mid America Cup West Des Moines Valley,HS,2016-09-24,VLD,3 R3,Bronx Science JJ,Lake Highland Prep AA,Neg,
+,CHRIS THEIS,Mid America Cup West Des Moines Valley,HS,2016-09-24,VLD,3 R3,Scarsdale ZE,Harker SP,Aff,
+,CHRIS THEIS,Mid America Cup West Des Moines Valley,HS,2016-09-24,VLD,2 R2,Bronx Science ZP,Harker EM,Aff,
+,CHRIS THEIS,Mid America Cup West Des Moines Valley,HS,2016-09-24,VLD,2 R2,St Thomas NW,St. Louis Park DA,Neg,
+,CHRIS THEIS,Mid America Cup West Des Moines Valley,HS,2016-09-24,VLD,1 R1,Lake Highland Prep HK,St. Louis Park AN,Aff,
+,CHRIS THEIS,Mid America Cup West Des Moines Valley,HS,2016-09-24,VLD,1 R1,Strake Jesuit CP AS,Lexington LE,Aff,
+,CHRIS THEIS,Greenhill Fall Classic,HS,2016-09-18,LD,6 R6,Meadows ER,Marlborough GK,Aff,
+,CHRIS THEIS,Greenhill Fall Classic,HS,2016-09-18,LD,6 R6,Holy Cross RS,Northland Christian MP,Neg,
+,CHRIS THEIS,Greenhill Fall Classic,HS,2016-09-18,LD,5 R5,Winston Churchill BR,Cedar Park MT,Aff,
+,CHRIS THEIS,Greenhill Fall Classic,HS,2016-09-18,LD,1 R1,Harvard-Westlake WP,Cypress Woods CJ,Neg,
+,CHRIS THEIS,Greenhill Fall Classic,HS,2016-09-18,LD,1 R1,West Ranch JW,Colleyville Heritage CW,Aff,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2016-04-09,LD,9 Quarte,Newark Science AK,Harker SP,Neg,Aff 2-1
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2016-04-09,LD,8 Octas,Newark Science AK,Lake Highland Prep MK,Aff,Aff 3-0
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2016-04-09,LD,6 R6,Lake Highland Prep MK,La Reina EP,Aff,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2016-04-09,LD,6 R6,Southlake Carroll SM,Lake Highland Prep SG,Neg,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2016-04-09,LD,5 R5,Harvard-Westlake JC,Presentation AS,Neg,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2016-04-09,LD,5 R5,Harker SP,New Trier LK,Aff,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2016-04-09,LD,4 R4,Gig Harbor CA,Harvard-Westlake KK,Aff,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2016-04-09,LD,4 R4,Harker RX,New Trier NK,Aff,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2016-04-09,LD,3 R3,Harvard-Westlake SP,Harker EM,Aff,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2016-04-09,LD,3 R3,Presentation MS,Harker MS,Neg,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2016-04-09,LD,2 R2,Lexington NG,Harker ZD,Aff,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2016-04-09,LD,2 R2,Trinity Prep AS,Harker NT,Neg,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2016-04-09,LD,1 R1,Fayette County LK,Lexington AQ,Neg,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2016-04-09,LD,1 R1,Lexington NB,Greenhill SK,Aff,
+,CHRIS THEIS,King Round Robin,HS,2016-04-01,LDRR,9 S,Harvard-Westlake CC,Harrison RP,Aff,Aff 3-0
+,CHRIS THEIS,King Round Robin,HS,2016-04-01,LDRR,8 Q,Plano East AK,Harvard-Westlake CC,Neg,Neg 2-1
+,CHRIS THEIS,King Round Robin,HS,2016-04-01,LDRR,7 R7,NSU University JR,Plano East AK,Neg,
+,CHRIS THEIS,King Round Robin,HS,2016-04-01,PFD,6 R6,NorChr NL,OxfAca GO,Con,Con 2-0
+,CHRIS THEIS,King Round Robin,HS,2016-04-01,LDRR,4 R4,Strake Jesuit CP RC,Harrison RP,Neg,Neg 2-0
+,CHRIS THEIS,King Round Robin,HS,2016-04-01,LDRR,3 R3,Dulles NBu,Law Magnet DD,Neg,
+,CHRIS THEIS,King Round Robin,HS,2016-04-01,LDRR,1 R1,Harrison KK,Episcopal AB,Aff,Aff 2-0
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2016-01-29,LD,10 MD,Newark Science AK,Harvard-Westlake NS,Neg,Neg 3-2
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2016-01-29,LD,7 WAU,Lake Highland MC,Holy Cross RS,Neg,Aff 2-1
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2016-01-29,LD,6 R6,Lake Highland KP,Lexington NB,Aff,
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2016-01-29,LD,6 R6,Montgomery High WP,Grapevine NS,Aff,
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2016-01-29,LD,4 R4,Newark Science BA,Ft. Lauderdale AO,Aff,
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2016-01-29,LD,2 R2,Montgomery Acad MD,Lynbrook VV,Neg,
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2016-01-29,LD,2 R2,Newark Science AK,Northland Christian ML,Aff,
+,CHRIS THEIS,John Edie Holiday Tournament Hosted by Blake,HS,2015-12-18,LD,8 Double,Byram Hills SC,Hawken NK,Neg,Neg 3-0
+,CHRIS THEIS,John Edie Holiday Tournament Hosted by Blake,HS,2015-12-18,LD,8 Double,Evanston DF,WDM Valley TG,Neg,Neg 2-1
+,CHRIS THEIS,John Edie Holiday Tournament Hosted by Blake,HS,2015-12-18,LD,5 R5,Byram Hills JB,Rosemount WL,Neg,
+,CHRIS THEIS,John Edie Holiday Tournament Hosted by Blake,HS,2015-12-18,LD,5 R5,WDM Valley WG,Sioux Falls Lincoln IO,Neg,
+,CHRIS THEIS,John Edie Holiday Tournament Hosted by Blake,HS,2015-12-18,LD,4 R4,Evanston GH,DuPont Manual XH,Neg,
+,CHRIS THEIS,John Edie Holiday Tournament Hosted by Blake,HS,2015-12-18,LD,4 R4,Upper Arlington HW,St Thomas Academy LW,Aff,
+,CHRIS THEIS,The Glenbrooks,HS,2015-11-21,LD,8 Double,Newark Science AK,New Trier LK,Aff,Aff 3-0
+,CHRIS THEIS,The Glenbrooks,HS,2015-11-21,LD,7 R7,,Lexington AS,Neg,
+,CHRIS THEIS,The Glenbrooks,HS,2015-11-21,LD,7 R7,Hockaday ED,Sage Ridge AC,Neg,
+,CHRIS THEIS,The Glenbrooks,HS,2015-11-21,LD,6 R6,Meadows KB,Newark Science DA,Aff,
+,CHRIS THEIS,The Glenbrooks,HS,2015-11-21,LD,6 R6,Kinkaid JG,Brentwood EL,Neg,
+,CHRIS THEIS,The Glenbrooks,HS,2015-11-21,LD,5 R5,Harker KQ,Lake Highland Prepara SP,Neg,
+,CHRIS THEIS,The Glenbrooks,HS,2015-11-21,LD,5 R5,,Chaminade College Pre ER,,
+,CHRIS THEIS,The Glenbrooks,HS,2015-11-21,LD,4 R4,Harker MS,Greenhill VA,Neg,
+,CHRIS THEIS,The Glenbrooks,HS,2015-11-21,LD,4 R4,Marlborough LG,Harvard-Westlake EE,Neg,
+,CHRIS THEIS,The Glenbrooks,HS,2015-11-21,LD,3 R3,Newark Science AK,Meadows SK,Aff,
+,CHRIS THEIS,The Glenbrooks,HS,2015-11-21,LD,3 R3,Lexington AQ,Kinkaid JY,Neg,
+,CHRIS THEIS,The Glenbrooks,HS,2015-11-21,LD,2 R2,Winston Churchill KH,,Aff,
+,CHRIS THEIS,The Glenbrooks,HS,2015-11-21,LD,2 R2,Oakwood JS,McDowell AL,Neg,
+,CHRIS THEIS,The Glenbrooks,HS,2015-11-21,LD,1 R1,Meadows AT,Harrison KK,Neg,
+,CHRIS THEIS,The Glenbrooks,HS,2015-11-21,LD,1 R1,Harker RX,Eastside Catholic DC,Neg,
+,CHRIS THEIS,Heart of Texas Invitational,HS,2015-10-16,LD,10 Semis,Greenhill BE,Strake Jesuit CP SM,Aff,Aff 3-0
+,CHRIS THEIS,Heart of Texas Invitational,HS,2015-10-16,LD,9 Quarte,Harvard-Westlake NS,Greenhill VA,Neg,Neg 3-0
+,CHRIS THEIS,Heart of Texas Invitational,HS,2015-10-16,LD,8 Octas,Harvard-Westlake NS,Law Magnet DD,Aff,Aff 3-0
+,CHRIS THEIS,Heart of Texas Invitational,HS,2015-10-16,LD,8 Octas,Harker KQ,Greenhill BE,Neg,Neg 3-0
+,CHRIS THEIS,Heart of Texas Invitational,HS,2015-10-16,LD,7 Double,Kinkaid EH,Harker KQ,Neg,Neg 3-0
+,CHRIS THEIS,Heart of Texas Invitational,HS,2015-10-16,LD,7 Double,Harvard-Westlake CE,Meadows LS,Neg,Neg 2-1
+,CHRIS THEIS,Heart of Texas Invitational,HS,2015-10-16,LD,6 Round,Cedar Park MG,Harvard-Westlake JN,Aff,
+,CHRIS THEIS,Heart of Texas Invitational,HS,2015-10-16,LD,6 Round,Harvard-Westlake CE,Strake Jesuit CP RC,Aff,
+,CHRIS THEIS,Heart of Texas Invitational,HS,2015-10-16,LD,4 Round,Greenhill GB,Harvard-Westlake EE,Aff,
+,CHRIS THEIS,Heart of Texas Invitational,HS,2015-10-16,LD,3 Round,Harvard-Westlake IP,Meadows KB,Neg,
+,CHRIS THEIS,Heart of Texas Invitational,HS,2015-10-16,LD,3 Round,Hockaday SF,Kinkaid JG,Aff,
+,CHRIS THEIS,Heart of Texas Invitational,HS,2015-10-16,LD,2 Round,Greenhill SA,Strake Jesuit CP SM,Neg,
+,CHRIS THEIS,Heart of Texas Invitational,HS,2015-10-16,LD,2 Round,Meadows AT,Westwood AR,Aff,
+,CHRIS THEIS,Heart of Texas Invitational,HS,2015-10-16,LD,1 Round,Lake Highland Prep JN,Greenhill BE,Neg,
+,CHRIS THEIS,Heart of Texas Invitational,HS,2015-10-16,LD,1 Round,Harker SP,West Des Moines Valley SC,Aff,
+,CHRIS THEIS,VBI Swarthmore,,2015-07-06,LD,6 R6,Dan Alessandro Academy for Dance Arts Vasanth Venkatasami,Jake Nebel Ivory Tower Atheneum Sophia Wang,Neg,
+,CHRIS THEIS,VBI Swarthmore,,2015-07-06,LD,5 R5,Tartakovsky Technikum For Aspiring Tsars Kaleigh Beacham,Kors Consortium for Music and Composition Kavya Sivan,Aff,
+,CHRIS THEIS,VBI Swarthmore,,2015-07-06,LD,5 R5,Hwang Hedge Schl Uma Balachandran,Bump's Institute for Billiards and Bowling Ava Holle,Neg,
+,CHRIS THEIS,VBI Swarthmore,HS,2015-07-06,LD,4 R4,Garg Laboratories Murray Friedberg,Labarre Finishing Schl Eric Jensen,Neg,
+,CHRIS THEIS,Tournament of Champions,HS,2015-04-25,LD,11 Semi,Newark Science CQ,Harker PR,Neg,Neg 2-1
+,CHRIS THEIS,Tournament of Champions,HS,2015-04-25,LD,8 Run of,Byram Hills AJ,Newark Science AF,Neg,Neg 2-1
+,CHRIS THEIS,Tournament of Champions,HS,2015-04-25,LD,2 R2,Marlborough AG,Newark Science AK,Neg,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2015-04-12,LD,11 Final,Harker PR,Greenhill VA,Neg,Aff 2-1
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2015-04-12,LD,10 Semi,Harker PR,Greenhill BE,Neg,Aff 2-1
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2015-04-12,LD,9 Quarte,Newark Science CQ,Greenhill BE,Neg,Neg 2-1
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2015-04-12,LD,8 Octo,Greenhill BE,Harvard-Westlake CE,Aff,Aff 3-0
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2015-04-12,LD,8 Octo,Newark Science CQ,Harvard-Westlake CC,Neg,Aff 2-1
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2015-04-12,LD,7 Double,Marlborough AG,Harvard-Westlake KW,Aff,Aff 2-1
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2015-04-12,LD,6 R6,Marlborough ZW,Gig Harbor AB,Neg,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2015-04-12,LD,6 R6,Greenhill BE,Newark Science CQ,Neg,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2015-04-12,LD,5 R5,Harvard-Westlake EE,Rancho Bernardo AR,Aff,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2015-04-12,LD,5 R5,Harker SP,Lexington JK,Neg,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2015-04-12,LD,4 R4,Harker ML,Harvard-Westlake KW,Neg,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2015-04-12,LD,4 R4,Harvard-Westlake CC,Newark Science AK,Neg,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2015-04-12,LD,3 R3,Liberty Christian BS,Green Valley RS,Aff,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2015-04-12,LD,2 R2,Meadows MS,Rancho Bernardo IT,Aff,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2015-04-12,LD,2 R2,Harvard-Westlake CE,Harker PR,Neg,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2015-04-12,LD,1 R1,Newark Science SS,Greenhill MM,Aff,
+,CHRIS THEIS,National Debate Coaches Association National Championships,HS,2015-04-12,LD,1 R1,Harvard-Westlake IP,Harker KQ,Neg,
+,CHRIS THEIS,29th Annual Stanford Invitational,HS,2015-02-08,VLD,9 Octas,Hawken Independent NK,Harvard-Westlake NS,Neg,Neg 3-0
+,CHRIS THEIS,29th Annual Stanford Invitational,HS,2015-02-08,VLD,8 Double,Harvard-Westlake NS,Meadows KB,Aff,Aff 2-1
+,CHRIS THEIS,29th Annual Stanford Invitational,HS,2015-02-08,VLD,7 Triple,San Marino NL,Lynbrook DW,Neg,Neg 2-1
+,CHRIS THEIS,29th Annual Stanford Invitational,HS,2015-02-08,VLD,7 Triple,Lake Highland Prep MK,Hawken Independent NK,Neg,Neg 3-0
+,CHRIS THEIS,29th Annual Stanford Invitational,HS,2015-02-08,VLD,6 R6,St. Francis HS (Mountain View) PV,Lynbrook YZ,Aff,
+,CHRIS THEIS,29th Annual Stanford Invitational,HS,2015-02-08,VLD,6 R6,Meadows KR,Dougherty Valley RB,Neg,
+,CHRIS THEIS,29th Annual Stanford Invitational,HS,2015-02-08,VLD,5 R5,San Marino NL,Marlborough LG,Aff,
+,CHRIS THEIS,29th Annual Stanford Invitational,HS,2015-02-08,VLD,5 R5,Claremont SH,Palo Alto TC,Neg,
+,CHRIS THEIS,29th Annual Stanford Invitational,HS,2015-02-08,VLD,4 R4,College Prep ZD,La Reina EP,Neg,
+,CHRIS THEIS,29th Annual Stanford Invitational,HS,2015-02-08,VLD,4 R4,Harvard-Westlake WP,Palo Alto AM,Neg,
+,CHRIS THEIS,29th Annual Stanford Invitational,HS,2015-02-08,VLD,3 R3,Marlborough GK,Dougherty Valley SZ,Neg,
+,CHRIS THEIS,29th Annual Stanford Invitational,HS,2015-02-08,VLD,3 R3,West Des Moines Valley TF,Harvard-Westlake NS,Neg,
+,CHRIS THEIS,29th Annual Stanford Invitational,HS,2015-02-08,VLD,2 R2,Lynbrook SS,BASIS Scottsdale CD,Neg,
+,CHRIS THEIS,29th Annual Stanford Invitational,HS,2015-02-08,VLD,2 R2,Palo Alto ET,Dougherty Valley AM,Aff,
+,CHRIS THEIS,29th Annual Stanford Invitational,HS,2015-02-08,VLD,1 R1,St. Francis HS (Mountain View) SA,West Des Moines Valley SC,Neg,
+,CHRIS THEIS,29th Annual Stanford Invitational,HS,2015-02-08,VLD,1 R1,Rancho Bernardo IT,Capital JS,Aff,
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2015-01-23,LD,7 WA Ulr,duPont Manual XH,Harker PR,Neg,Neg 3-0
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2015-01-23,LD,6 R6,Greenhill VA,Newark Science CQ,Aff,
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2015-01-23,LD,6 R6,Colleyville Heritage AC,Strake Jesuit CP RC,Neg,
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2015-01-23,LD,5 R5,Brown BD,Harker PR,Neg,
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2015-01-23,LD,1 R1,Bronx Science GM,Upper Arlington HW,Aff,
+,CHRIS THEIS,Barkley Forum for High Schools,HS,2015-01-23,LD,1 R1,Harker ZD,St James PD,Neg,
+,CHRIS THEIS,John Edie Holiday Tournament at Blake,HS,2014-12-19,LD,10 Quarte,Evanston Township JS,Bronx Science DR,Aff,Aff 3-0
+,CHRIS THEIS,John Edie Holiday Tournament at Blake,HS,2014-12-19,LD,9 Octos,Evanston Township EW,Hopkins SG,Aff,Aff 3-0
+,CHRIS THEIS,John Edie Holiday Tournament at Blake,HS,2014-12-19,LD,8 Double,Bronx Science CL,Evanston Township CT,Aff,Neg 2-1
+,CHRIS THEIS,John Edie Holiday Tournament at Blake,HS,2014-12-19,LD,7 Triple,Bronx Science CL,Scarsdale GZ,Aff,Aff 3-0
+,CHRIS THEIS,John Edie Holiday Tournament at Blake,HS,2014-12-19,LD,6 R6,Millburn CS,Whitefish Bay EZ,Aff,
+,CHRIS THEIS,John Edie Holiday Tournament at Blake,HS,2014-12-19,LD,5 R5,Bronx Science DR,Whitefish Bay AP,Aff,
+,CHRIS THEIS,John Edie Holiday Tournament at Blake,HS,2014-12-19,LD,4 R4,Bronx Science AF,Lake Highland AA,Neg,
+,CHRIS THEIS,John Edie Holiday Tournament at Blake,HS,2014-12-19,LD,4 R4,Eastside Catholic DD,Scarsdale SJ,Neg,
+,CHRIS THEIS,John Edie Holiday Tournament at Blake,HS,2014-12-19,LD,3 R3,Evanston Township JS,New Trier SI,Aff,
+,CHRIS THEIS,John Edie Holiday Tournament at Blake,HS,2014-12-19,LD,3 R3,Lexington LW,Scarsdale ML,Aff,
+,CHRIS THEIS,John Edie Holiday Tournament at Blake,HS,2014-12-19,LD,2 R2,Hopkins RA,Roseville Area DD,Neg,
+,CHRIS THEIS,John Edie Holiday Tournament at Blake,HS,2014-12-19,LD,2 R2,St Thomas Academy/Visitation EM,J. Graham Brown VP,Neg,
+,CHRIS THEIS,John Edie Holiday Tournament at Blake,HS,2014-12-19,LD,1 R1,Scarsdale DW,St Thomas Academy/Visitation NB,Aff,
+,CHRIS THEIS,John Edie Holiday Tournament at Blake,HS,2014-12-19,LD,1 R1,St Thomas Academy/Visitation AS,Scarsdale MC,Neg,
+,CHRIS THEIS,The Glenbrooks,HS,2014-11-22,VLD,11 Semis,Clements FT,Brentwood JL,Neg,Neg 3-0
+,CHRIS THEIS,The Glenbrooks,HS,2014-11-22,VLD,5 Round,Brentwood JL,Greenhill MM,Aff,
+,CHRIS THEIS,The Glenbrooks,HS,2014-11-22,VLD,4 Round,Lexington PC,Law Magnet DD,Aff,
+,CHRIS THEIS,The Glenbrooks,HS,2014-11-22,VLD,3 Round,Harker MS,Evanston EW,Neg,
+,CHRIS THEIS,The Glenbrooks,HS,2014-11-22,VLD,3 Round,Newark Science AF,Lexington DA,Aff,
+,CHRIS THEIS,The Glenbrooks,HS,2014-11-22,VLD,2 Round,Bronx Science CL,Cambridge Rindge and Latin PO,Aff,
+,CHRIS THEIS,The Glenbrooks,HS,2014-11-22,VLD,1 Round,Bronx Science OK,Anderson BL,Aff,
+,CHRIS THEIS,The Heart of Texas Invitational at St Marks,HS,2014-10-18,LD,9 Octas,Strake Jesuit CP AT,Greenhill GB,Aff,Aff 2-1
+,CHRIS THEIS,The Heart of Texas Invitational at St Marks,HS,2014-10-18,LD,8 Double,Greenhill VA,Marcus LH,Neg,Aff 2-1
+,CHRIS THEIS,The Heart of Texas Invitational at St Marks,HS,2014-10-18,LD,8 Double,Greenhill GB,Evanston JS,Neg,Aff 2-1
+,CHRIS THEIS,The Heart of Texas Invitational at St Marks,HS,2014-10-18,LD,6 Round,Meadows LS,Liberty Christian BS,Neg,
+,CHRIS THEIS,The Heart of Texas Invitational at St Marks,HS,2014-10-18,LD,6 Round,Greenhill GB,Eastside Catholic TD,Aff,
+,CHRIS THEIS,The Heart of Texas Invitational at St Marks,HS,2014-10-18,LD,4 Round,Eastside Catholic DD,Plano East Senior AK,Neg,
+,CHRIS THEIS,The Heart of Texas Invitational at St Marks,HS,2014-10-18,LD,3 Round,Katy Taylor NY,Evanston EW,Neg,
+,CHRIS THEIS,The Heart of Texas Invitational at St Marks,HS,2014-10-18,LD,3 Round,Harvard-Westlake CE,Plano East Senior SA,Neg,
+,CHRIS THEIS,The Heart of Texas Invitational at St Marks,HS,2014-10-18,LD,2 Round,Evanston JS,Greenhill MM,Neg,
+,CHRIS THEIS,The Heart of Texas Invitational at St Marks,HS,2014-10-18,LD,2 Round,Grapevine NS,Harvard-Westlake NS,Neg,
+,CHRIS THEIS,The Heart of Texas Invitational at St Marks,HS,2014-10-18,LD,1 Round,Plano East Senior AB,Grapevine DC,Aff,
+,CHRIS THEIS,The Heart of Texas Invitational at St Marks,HS,2014-10-18,LD,1 Round,Brentwood JR,Harvard-Westlake CC,Neg,
+,CHRIS THEIS,Mid America Cup,HS,2014-09-27,VLD,6 R6,Hockaday SS,Liberty Christian BS,Neg,
+,CHRIS THEIS,Mid America Cup,HS,2014-09-27,VLD,6 R6,Millard West GN,Strake Jesuit CP RC,Neg,
+,CHRIS THEIS,Mid America Cup,HS,2014-09-27,VLD,5 R5,Hockaday KK,duPont Manual XH,Neg,
+,CHRIS THEIS,Mid America Cup,HS,2014-09-27,VLD,5 R5,St Thomas SK,Bronx Science EF,Neg,
+,CHRIS THEIS,Mid America Cup,HS,2014-09-27,VLD,4 R4,West Des Moines Valley CT,Bronx Science SM,Aff,
+,CHRIS THEIS,Mid America Cup,HS,2014-09-27,VLD,4 R4,Hockaday AG,Brentwood SSe,Aff,
+,CHRIS THEIS,Mid America Cup,HS,2014-09-27,VLD,3 R3,Law Magnet KP,Immaculate Heart LM,Neg,
+,CHRIS THEIS,Mid America Cup,HS,2014-09-27,VLD,3 R3,Whitefish Bay EZ,Bronx Science JS,Aff,
+,CHRIS THEIS,Mid America Cup,HS,2014-09-27,VLD,2 R2,Bronx Science GM,Meadows AT,Neg,
+,CHRIS THEIS,Mid America Cup,HS,2014-09-27,VLD,2 R2,Bronx Science DR,Walt Whitman SP,Neg,
+,CHRIS THEIS,Mid America Cup,HS,2014-09-27,VLD,1 R1,Hockaday AH,Evanston EW,Neg,
+,CHRIS THEIS,Mid America Cup,HS,2014-09-27,VLD,1 R1,Meadows KT,Bronx Science ID,Neg,
+,CHRIS THEIS,Victory Briefs Chicago,HS,2014-07-07,LD,5 Round,NARPs Adam Tomasi,NARPs Daniel Alessandro,Aff,
+,CHRIS THEIS,Victory Briefs Chicago,HS,2014-07-07,LD,4 Round,NARPs Kevin Krotz,Academy of Broom Flying Edward Gao,Aff,
+,CHRIS THEIS,Victory Briefs Chicago,HS,2014-07-07,LD,3 Round,BenAnnieMollie Max Mahar,BenAnnieMollie Mariah Stewart,Neg,
+,CHRIS THEIS,Victory Briefs Chicago,HS,2014-07-07,LD,2 Round,BenAnnieMollie Daniel Lu,NARPs Jackson Lallas,Neg,
+,CHRIS THEIS,Victory Briefs Chicago,HS,2014-07-07,LD,2 Round,$$$$$$ Kathy Liu,McHomCha CDI Chicago 2014 Ted Sanders,Aff,
+,CHRIS THEIS,Victory Briefs Chicago,HS,2014-07-07,LD,1 Round,$$$$$$ Tina Lu,$$$$$$ Sam Mehlhaff,Neg,
+,CHRIS THEIS,Victory Briefs Chicago,HS,2014-07-07,LD,1 Round,McHomCha CDI Chicago 2014 Joey Zhao,Kingdom Arjun Arora,Neg,
+,CHRIS THEIS,Tournament of Champions,HS,2014-04-26,LD,5 R5,Kinkaid TG,Travis AS,Aff,
+,CHRIS THEIS,Tournament of Champions,HS,2014-04-26,LD,3 R3,Walt Whitman DM,Harker PR,Aff,
+,CHRIS THEIS,Tournament of Champions,HS,2014-04-26,LD,1 R1,Presentation SK,Walt Whitman YC,Neg,
+,CHRIS THEIS,UPenn Liberty Bell Classic,HS,2014-02-15,VLD,8 Quarte,Monti DT,Princeton CPr,Aff,Aff 3-0
+,CHRIS THEIS,UPenn Liberty Bell Classic,HS,2014-02-15,VLD,7 Octos,Bronx Science JH,Princeton AH,Aff,Aff 2-1
+,CHRIS THEIS,UPenn Liberty Bell Classic,HS,2014-02-15,VLD,7 Octos,William Tennent MP,Ridge JW,Neg,Neg 3-0
+,CHRIS THEIS,UPenn Liberty Bell Classic,HS,2014-02-15,VLD,6 LD 6,Hill GW,Princeton MNo,Neg,
+,CHRIS THEIS,UPenn Liberty Bell Classic,HS,2014-02-15,VLD,5 LD 5,Millburn AA,Bronx Science DR,Neg,
+,CHRIS THEIS,UPenn Liberty Bell Classic,HS,2014-02-15,VLD,3 LD 3,Bronx Science JH,Millburn MW,Aff,
+,CHRIS THEIS,UPenn Liberty Bell Classic,HS,2014-02-15,VLD,2 LD 2,William Tennent JL,Princeton CPr,Neg,
+,CHRIS THEIS,UPenn Liberty Bell Classic,HS,2014-02-15,VLD,2 LD 2,Sacred Heart HE,Princeton DE,Neg,
+,CHRIS THEIS,UPenn Liberty Bell Classic,HS,2014-02-15,VLD,1 LD 1,William T. Dwyer WY,Princeton KX,Neg,
+,CHRIS THEIS,UPenn Liberty Bell Classic,HS,2014-02-15,VLD,1 LD 1,Hill MH,Alexander Dawson EC,Aff,
+,CHRIS THEIS,Tournament of Champions,HS,2013-04-27,LD,7 R7,College Prep CL,Brentwood JL,Neg,
+,CHRIS THEIS,Tournament of Champions,HS,2013-04-27,LD,6 R6,Northland Christian DL,Harvard-Westlake MO,Aff,
+,CHRIS THEIS,Tournament of Champions,HS,2013-04-27,LD,3 R3,Sacred Heart AT,Brentwood JP,Aff,
+,CHRIS THEIS,Tournament of Champions,HS,2013-04-27,LD,3 R3,Brentwood MR,FSHA (Flintridge) MA,Neg,
+,CHRIS THEIS,New York City Invitational,HS,2012-10-19,LD,8 Run,HarvarAK,MonticLS,Aff,Aff 3-0
+,CHRIS THEIS,New York City Invitational,HS,2012-10-19,LD,4 R4,BrentwJP,ChristCL,Neg,
+,CHRIS THEIS,New York City Invitational,HS,2012-10-19,LD,4 R4,PingryAK,UniverVM,Aff,
+,CHRIS THEIS,New York City Invitational,HS,2012-10-19,LD,3 R3,HarvarAM,HawkenJW,Aff,
+,CHRIS THEIS,New York City Invitational,HS,2012-10-19,LD,3 R3,HunterJG,FlintrMC,Aff,
+,CHRIS THEIS,New York City Invitational,HS,2012-10-19,LD,2 R2,CollegNE,HarvarSW,Neg,
+,CHRIS THEIS,New York City Invitational,HS,2012-10-19,LD,2 R2,FlintrMA,BrentwJL,Neg,
+,CHRIS THEIS,New York City Invitational,HS,2012-10-19,LD,1 R1,HarvarAS,San MaJH,Aff,
+,CHRIS THEIS,New York City Invitational,HS,2012-10-19,LD,1 R1,KKaid MS,MonticDT,Neg,

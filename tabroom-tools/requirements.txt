@@ -15,19 +15,12 @@ webdriver-manager==3.8.6
 beautifulsoup4==4.12.2
 requests==2.31.0
 
-# Browser and WebDriver Compatibility
-chromium-version==134.0.6998.0
-chromedriver-version==134.0.6998.166
-
 # Cryptography (for your encryption needs)
-pycryptodome==1.18.0  # For AES encryption in session_manager.py
+pycryptodome==3.19.0  # Updated version
 
 # Data processing
+numpy==1.26.1  # Explicitly specify compatible numpy version
 pandas==2.0.1
 
 # Testing
 pytest==7.3.1
-
-# Optional: Development and debugging
-# logging==0.5.1.2  # Standard library, no need to specify version
-# python-dotenv==1.0.0  # For environment variable management
