@@ -176,6 +176,10 @@ class TabroomSession:
         Returns:
             bool: True if logged in, False otherwise
         """
+        # Check if cookies exist before creating a driver
+        if not os.path.exists(self.cookie_manager.cookie_file):
+            return False
+            
         driver = None
         try:
             driver = self.driver_pool.get_driver()
@@ -318,7 +322,7 @@ class TabroomSession:
                 self.driver_pool.release_driver()
             return None
     
-    def release_driver(self, driver):
+    def release_driver(self, driver=None):
         """
         Release a driver back to the pool
         
@@ -328,7 +332,7 @@ class TabroomSession:
         if driver:
             # Save cookies before releasing
             self.cookie_manager.save_cookies(driver)
-            self.driver_pool.release_driver()
+        self.driver_pool.release_driver()
     
     def _wait_for_element(self, driver, selector, by=By.CSS_SELECTOR, timeout=10, 
                           condition=EC.presence_of_element_located):
