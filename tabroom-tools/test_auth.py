@@ -8,7 +8,7 @@ from pathlib import Path
 sys.path.append(str(Path(__file__).resolve().parent))
 
 from app.auth.session_manager import TabroomSession
-from app.auth.utils import test_login, check_login_status, get_authenticated_session, clear_session
+from app.auth.utils import test_login, check_login_status, get_authenticated_session, get_authenticated_driver
 
 # Configure logging
 logging.basicConfig(
@@ -22,41 +22,56 @@ def test_authentication():
     username = input("Enter your Tabroom username (email): ")
     password = input("Enter your Tabroom password: ")
     
-    logger.info("Testing direct login...")
+    logger.info("=== Testing Browser Creation ===")
     session = TabroomSession()
-    login_result = session.login(username, password)
+    driver = session.get_driver()
+    if driver:
+        logger.info("Browser created successfully")
+        session.release_driver(driver)
+    else:
+        logger.error("Failed to create browser")
+    
+    logger.info("\n=== Testing Direct Login ===")
+    login_result = test_login(username, password)
     logger.info(f"Direct login result: {'Success' if login_result else 'Failed'}")
     
-    logger.info("Testing login status check...")
+    logger.info("\n=== Testing Login Status Check ===")
     is_logged_in = check_login_status()
     logger.info(f"Login status: {'Logged in' if is_logged_in else 'Not logged in'}")
     
-    logger.info("Testing get_authenticated_session...")
+    logger.info("\n=== Testing Authenticated Session ===")
     auth_session = get_authenticated_session()
-    logger.info(f"Got authenticated session: {'Yes' if auth_session else 'No'}")
+    if auth_session:
+        logger.info("Got authenticated session successfully")
+        
+        logger.info("\n=== Testing Authenticated Driver ===")
+        auth_driver = auth_session.get_driver()
+        if auth_driver:
+            logger.info("Got authenticated driver successfully")
+            auth_session.release_driver(auth_driver)
+        else:
+            logger.error("Failed to get authenticated driver")
+    else:
+        logger.error("Failed to get authenticated session")
     
-    logger.info("Testing logout...")
-    logout_result = clear_session()
+    # Check stored credentials
+    logger.info("\n=== Testing Credential Storage ===")
+    stored_credentials = auth_session.credential_manager.load_credentials()
+    if stored_credentials:
+        logger.info(f"Stored username: {stored_credentials.get('username')}")
+        logger.info("Stored password: [REDACTED]")
+    else:
+        logger.error("Failed to load stored credentials")
+    
+    logger.info("\n=== Testing Logout ===")
+    logout_result = auth_session.logout()
     logger.info(f"Logout result: {'Success' if logout_result else 'Failed'}")
     
-    logger.info("Testing login status after logout...")
+    logger.info("\n=== Testing Login Status After Logout ===")
     is_logged_in = check_login_status()
     logger.info(f"Login status: {'Logged in' if is_logged_in else 'Not logged in'}")
     
-    # Test credential storage and encryption
-    logger.info("Testing credential storage...")
-    if os.path.exists(session.credentials_file):
-        logger.info(f"Credentials file exists: {session.credentials_file}")
-        stored_credentials = session.load_credentials()
-        if stored_credentials:
-            logger.info(f"Stored username: {stored_credentials.get('username')}")
-            logger.info("Stored password: [REDACTED]")
-        else:
-            logger.error("Failed to load stored credentials")
-    else:
-        logger.warning(f"Credentials file does not exist: {session.credentials_file}")
-    
-    logger.info("All tests completed")
+    logger.info("\nAll tests completed")
 
 if __name__ == "__main__":
     test_authentication()
