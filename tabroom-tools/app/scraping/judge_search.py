@@ -234,6 +234,7 @@ class JudgeSearchScraper:
             try:
                 cols = row.find_elements(By.TAG_NAME, "td")
                 if len(cols) >= 9:
+                    # Extract the base record data
                     record = {
                         "JudgeID": judge_id,
                         "JudgeName": judge_name,
@@ -242,11 +243,57 @@ class JudgeSearchScraper:
                         "Date": self._extract_clean(cols[2], field="Date"),
                         "Ev": self._extract_clean(cols[3]),
                         "Rd": self._extract_clean(cols[4]),
-                        "Aff": self._extract_clean(cols[5]),
-                        "Neg": self._extract_clean(cols[6]),
+                        "AffCode": self._extract_clean(cols[5]),
+                        "NegCode": self._extract_clean(cols[6]),
                         "Vote": self._extract_clean(cols[7]),
                         "Result": self._extract_clean(cols[8], field="Result")
                     }
+                    
+                    # Initialize new fields
+                    record["AffName"] = ""
+                    record["AffPoints"] = ""
+                    record["NegName"] = ""
+                    record["NegPoints"] = ""
+                    
+                    # Extract links to entry pages
+                    try:
+                        aff_link_element = cols[5].find_element(By.TAG_NAME, "a")
+                        neg_link_element = cols[6].find_element(By.TAG_NAME, "a")
+                        
+                        aff_link = aff_link_element.get_attribute("href")
+                        neg_link = neg_link_element.get_attribute("href")
+                        
+                        # Extract aff entry data
+                        if aff_link:
+                            logger.info(f"Row {index} - Scraping Aff entry page: {aff_link}")
+                            aff_data = self._scrape_entry_page(
+                                driver, 
+                                aff_link, 
+                                judge_name=judge_name,
+                                round_info=record["Rd"],
+                                opponent_code=record["NegCode"]
+                            )
+                            if aff_data:
+                                record["AffName"] = aff_data.get("name", "")
+                                record["AffPoints"] = aff_data.get("points", "")
+                        
+                        # Extract neg entry data
+                        if neg_link:
+                            logger.info(f"Row {index} - Scraping Neg entry page: {neg_link}")
+                            neg_data = self._scrape_entry_page(
+                                driver, 
+                                neg_link, 
+                                judge_name=judge_name,
+                                round_info=record["Rd"],
+                                opponent_code=record["AffCode"]
+                            )
+                            if neg_data:
+                                record["NegName"] = neg_data.get("name", "")
+                                record["NegPoints"] = neg_data.get("points", "")
+                        
+                    except Exception as e:
+                        logger.warning(f"Error extracting entry data for row {index}: {e}")
+                    
                     data_list.append(record)
                 else:
                     logger.debug(f"Skipping row {index} due to insufficient columns")
@@ -254,11 +301,210 @@ class JudgeSearchScraper:
                 logger.debug(f"Exception processing row {index}: {e}")
         
         if data_list:
-            logger.info("Successfully extracted judge record data")
+            logger.info("Successfully extracted judge record data with entry details")
             return pd.DataFrame(data_list)
         else:
             logger.error(f"No valid rows found on judge page: {judge_url}")
             return pd.DataFrame()
+    
+    def _scrape_entry_page(self, driver, entry_url, judge_name, round_info, opponent_code):
+        """
+        Extract debater name and points from an entry page
+        
+        Args:
+            driver: WebDriver instance
+            entry_url: URL of the entry page
+            judge_name: Name of the judge to match
+            round_info: Round identifier to match
+            opponent_code: Code of the opponent entry to match
+            
+        Returns:
+            dict: Dictionary containing name and points (if available)
+        """
+        original_url = driver.current_url
+        result = {"name": "", "points": ""}
+        
+        try:
+            # Navigate to entry page
+            driver.get(entry_url)
+            time.sleep(2)
+            
+            # Extract entry name
+            try:
+                name_element = WebDriverWait(driver, 10).until(
+                    EC.presence_of_element_located((By.CSS_SELECTOR, "h4.nospace.semibold"))
+                )
+                result["name"] = name_element.text.strip()
+                logger.info(f"Found entry name: {result['name']}")
+            except Exception as e:
+                logger.warning(f"Could not find entry name: {e}")
+                
+            # Find all rows in the results table
+            result_rows = driver.find_elements(By.CSS_SELECTOR, "div.row")
+            
+            # Look for a row that matches our round and judge
+            match_found = False
+            for row in result_rows:
+                try:
+                    # Extract round text to match
+                    round_span = row.find_element(By.CSS_SELECTOR, "span.tenth.semibold")
+                    row_round = round_span.text.strip()
+                    
+                    # Check if the round matches
+                    if not self._matches_round(row_round, round_info):
+                        continue
+                    
+                    # Check for opponent match
+                    try:
+                        opponent_element = row.find_element(By.CSS_SELECTOR, "a.white.padtop.padbottom")
+                        opponent_text = opponent_element.text.strip()
+                        if "vs" in opponent_text:
+                            opponent_code_extracted = opponent_text.replace("vs", "").strip()
+                            if not self._similar_codes(opponent_code_extracted, opponent_code):
+                                continue
+                        else:
+                            continue
+                    except Exception as e:
+                        logger.debug(f"Error extracting opponent: {e}")
+                        continue
+                    
+                    # Extract all judge links in this row
+                    judge_links = row.find_elements(By.CSS_SELECTOR, "a[href*='judge.mhtml']")
+                    
+                    # Check if any judge matches our judge
+                    for judge_link in judge_links:
+                        judge_href = judge_link.get_attribute("href")
+                        judge_text = judge_link.text.strip().lower()
+                        
+                        # Normalize judge names for comparison
+                        judge_name_parts = [part.lower() for part in judge_name.split()]
+                        # Convert "Last, First" to a set of words
+                        judge_text_parts = set(judge_text.replace(",", " ").split())
+                        
+                        # Match if the judge text contains all parts of the judge name
+                        name_match = all(part in judge_text_parts for part in judge_name_parts)
+                        
+                        if name_match:
+                            match_found = True
+                            logger.info(f"Found judge match: '{judge_text}' for '{judge_name}'")
+                            
+                            # Find points if available (should be in the same div as the judge)
+                            try:
+                                # Find the parent div of this judge
+                                parent_div = judge_link.find_element(By.XPATH, "./ancestor::div[contains(@class, 'padless')]")
+                                
+                                # Look for points within this div
+                                try:
+                                    points_spans = parent_div.find_elements(By.CSS_SELECTOR, "span.fifth.marno")
+                                    if points_spans:
+                                        result["points"] = points_spans[0].text.strip()
+                                        logger.info(f"Found points: {result['points']}")
+                                except NoSuchElementException:
+                                    # Points not found - might be elimination round or bye
+                                    logger.debug("No points found for this round (elimination or bye)")
+                            except Exception as e:
+                                logger.debug(f"Error finding points: {e}")
+                            
+                            break
+                    
+                    if match_found:
+                        logger.info(f"Found matching round with judge {judge_name}")
+                        break
+                    
+                except Exception as e:
+                    logger.debug(f"Error processing result row: {e}")
+                    continue
+            
+            if not match_found:
+                logger.warning(f"No matching round found for judge {judge_name} and round {round_info}")
+        
+        except Exception as e:
+            logger.error(f"Error scraping entry page {entry_url}: {e}")
+        finally:
+            # Return to original page
+            driver.get(original_url)
+            time.sleep(1)
+        
+        return result
+    
+    def _matches_round(self, row_round, target_round):
+        """
+        Check if the round from the entry page matches the target round
+        
+        Args:
+            row_round: Round text from entry page
+            target_round: Round text from judge page
+            
+        Returns:
+            bool: True if rounds match, False otherwise
+        """
+        # Clean up the round texts
+        row_round = row_round.lower().strip()
+        target_round = target_round.lower().strip()
+        
+        # Direct match
+        if row_round == target_round:
+            return True
+        
+        # Handle common variations
+        if "round" in row_round and any(str(num) in target_round for num in range(1, 10)):
+            # Extract numbers from both
+            row_num = ''.join(filter(str.isdigit, row_round))
+            target_num = ''.join(filter(str.isdigit, target_round))
+            return row_num == target_num
+        
+        # Special cases for elimination rounds
+        elim_matches = {
+            "double": ["double", "doubles", "dbls", "double octas", "double octafinals"],
+            "triple": ["triple", "triples", "trips", "triple octas"],
+            "octas": ["octas", "octafinals", "oct", "octaf", "octafi"],
+            "quarte": ["quarte", "quarters", "quarterfinals", "qf"],
+            "semis": ["semis", "semifinals", "semi", "sf"],
+            "finals": ["finals", "final", "f"]
+        }
+        
+        for key, variations in elim_matches.items():
+            if any(var in target_round.lower() for var in variations):
+                return any(var in row_round.lower() for var in variations)
+        
+        return False
+    
+    def _similar_codes(self, code1, code2):
+        """
+        Check if two entry codes are similar
+        
+        Args:
+            code1: First entry code
+            code2: Second entry code
+            
+        Returns:
+            bool: True if codes are similar, False otherwise
+        """
+        # Clean and normalize codes
+        code1 = code1.lower().strip()
+        code2 = code2.lower().strip()
+        
+        # Direct match
+        if code1 == code2:
+            return True
+        
+        # Compare parts (school name and team code)
+        parts1 = code1.split()
+        parts2 = code2.split()
+        
+        # Check for school name match (first parts)
+        school1 = ' '.join(parts1[:-1]) if len(parts1) > 1 else code1
+        school2 = ' '.join(parts2[:-1]) if len(parts2) > 1 else code2
+        
+        # Check for team code match (last parts)
+        team1 = parts1[-1] if len(parts1) > 0 else ''
+        team2 = parts2[-1] if len(parts2) > 0 else ''
+        
+        # Schools match and teams match
+        if (school1 in school2 or school2 in school1) and team1 == team2:
+            return True
+        
+        return False
     
     def _extract_clean(self, cell, field=None):
         """
