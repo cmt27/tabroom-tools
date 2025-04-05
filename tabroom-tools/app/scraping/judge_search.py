@@ -473,38 +473,71 @@ class JudgeSearchScraper:
                             
                             # Find the points - in the entry page snippet, they're in a span.fifth.marno element
                             try:
-                                # Method 1: Find spans with class fifth marno within the row
-                                points_spans = row.find_elements(By.CSS_SELECTOR, "span.fifth.marno")
+                                # Method 1: Use XPath to navigate the exact path we see in both snippets
+                                # This is more reliable than chaining multiple find_element calls
+                                points_span = row.find_element(
+                                    By.XPATH, 
+                                    ".//span[@class='threefifths nospace']/div[@class='padless full marno ']/span[@class='half']/div[@class='full nospace smallish']/span[@class='fifth marno']"
+                                )
                                 
-                                # Try different selectors if the first doesn't work
-                                if not points_spans:
-                                    points_spans = row.find_elements(By.CSS_SELECTOR, "span.fifth")
+                                points_text = points_span.text.strip()
+                                if points_text and points_text.replace('.', '').isdigit():
+                                    try:
+                                        point_value = float(points_text)
+                                        if 20 <= point_value <= 30:
+                                            result["points"] = points_text
+                                            logger.info(f"Found speaker points through XPath: {result['points']}")
+                                    except ValueError:
+                                        logger.debug(f"Could not convert '{points_text}' to float")
+                            except NoSuchElementException as e:
+                                logger.debug(f"Could not find speaker points through XPath: {e}")
                                 
-                                if points_spans:
+                                # Method 2: If the XPath approach fails, try a more flexible approach
+                                try:
+                                    # This finds any span.fifth.marno that is deeply nested within the row
+                                    points_spans = row.find_elements(By.CSS_SELECTOR, "span.fifth.marno")
                                     for span in points_spans:
                                         span_text = span.text.strip()
-                                        logger.debug(f"Found potential points text: '{span_text}'")
-                                        
-                                        # Check if it looks like a speaker point value (typically between 20-30)
                                         if span_text and span_text.replace('.', '').isdigit():
                                             try:
                                                 point_value = float(span_text)
                                                 if 20 <= point_value <= 30:
                                                     result["points"] = span_text
-                                                    logger.info(f"Found speaker points: {result['points']}")
+                                                    logger.info(f"Found speaker points through CSS selector: {result['points']}")
                                                     break
                                             except ValueError:
-                                                logger.debug(f"Could not convert '{span_text}' to float")
+                                                continue
+                                except Exception as e:
+                                    logger.debug(f"Error finding speaker points through CSS selector: {e}")
                                 
-                                # If points not found yet, try another approach
+                                # Method 3: If both approaches fail, try one more method with a different XPath
                                 if not result["points"]:
-                                    # Method 2: Look for points in the HTML content
-                                    row_html = row.get_attribute('innerHTML')
-                                    # Use regex to find points in the format of 2-digit number with decimal (e.g., 28.9)
-                                    points_match = re.search(r'<span class="fifth marno">\s*(\d{2}\.\d+)\s*</span>', row_html)
-                                    if points_match:
-                                        result["points"] = points_match.group(1)
-                                        logger.info(f"Found speaker points from HTML: {result['points']}")
+                                    try:
+                                        # This finds any span with class 'fifth marno' anywhere in the row
+                                        points_span = row.find_element(By.XPATH, ".//*[contains(@class, 'fifth') and contains(@class, 'marno')]")
+                                        points_text = points_span.text.strip()
+                                        if points_text and points_text.replace('.', '').isdigit():
+                                            try:
+                                                point_value = float(points_text)
+                                                if 20 <= point_value <= 30:
+                                                    result["points"] = points_text
+                                                    logger.info(f"Found speaker points through general XPath: {result['points']}")
+                                            except ValueError:
+                                                logger.debug(f"Could not convert '{points_text}' to float")
+                                    except NoSuchElementException:
+                                        logger.debug("Could not find speaker points through general XPath")
+                                        
+                                        # Method 4: Fall back to the original regex approach as a last resort
+                                        try:
+                                            # Look for points in the HTML content
+                                            row_html = row.get_attribute('innerHTML')
+                                            # Use regex to find points in the format of 2-digit number with decimal (e.g., 28.9)
+                                            points_match = re.search(r'<span class="fifth marno">\s*(\d{1,2}(?:\.\d+)?)\s*</span>', row_html)
+                                            if points_match:
+                                                result["points"] = points_match.group(1)
+                                                logger.info(f"Found speaker points from HTML regex: {result['points']}")
+                                        except Exception as e:
+                                            logger.debug(f"Error extracting points with regex: {e}")
                             
                             except Exception as e:
                                 logger.debug(f"Error extracting points: {e}")
