@@ -354,80 +354,169 @@ class JudgeSearchScraper:
             except Exception as e:
                 logger.warning(f"Could not find entry name: {e}")
                 
-            # Find all rows in the results table
-            result_rows = driver.find_elements(By.CSS_SELECTOR, "div.row")
+            # Find all result rows in the blue border sections
+            result_rows = driver.find_elements(By.CSS_SELECTOR, "div.bluebordertop.row")
+            
+            if not result_rows:
+                # Try alternative selectors
+                result_rows = driver.find_elements(By.CSS_SELECTOR, "div.row.padtop.padbottom")
+                
+            logger.info(f"Found {len(result_rows)} result rows on entry page")
+            
+            # Save page source for debugging
+            try:
+                debug_file = os.path.join(config.DATA_DIR, "entry_page_debug.html")
+                with open(debug_file, 'w', encoding='utf-8') as f:
+                    f.write(driver.page_source)
+                logger.debug(f"Saved entry page source to {debug_file}")
+            except Exception as e:
+                logger.debug(f"Error saving page source: {e}")
+            
+            # Process the judge round_info to extract just the round number
+            # Handle formats like "6 R6", "R6", etc.
+            target_round_digits = re.findall(r'\d+', round_info)
+            if target_round_digits:
+                # Use the first number found in the round info
+                target_round_num = target_round_digits[0]
+                logger.debug(f"Extracted target round number: {target_round_num} from '{round_info}'")
+            else:
+                target_round_num = ""
+                logger.warning(f"Could not extract round number from '{round_info}'")
             
             # Look for a row that matches our round and judge
             match_found = False
-            for row in result_rows:
+            for row_idx, row in enumerate(result_rows):
                 try:
-                    # Extract round text to match
-                    round_span = row.find_element(By.CSS_SELECTOR, "span.tenth.semibold")
-                    row_round = round_span.text.strip()
+                    # Log the full HTML of the row for debugging
+                    row_html = row.get_attribute('outerHTML')
+                    logger.debug(f"Row {row_idx+1} HTML: {row_html}")
                     
-                    # Check if the round matches
-                    if not self._matches_round(row_round, round_info):
+                    # Extract round text to match 
+                    try:
+                        round_span = row.find_element(By.CSS_SELECTOR, "span.tenth.semibold")
+                        row_round = round_span.text.strip()
+                        logger.debug(f"Row {row_idx+1} round text: '{row_round}'")
+                    except NoSuchElementException:
+                        logger.debug(f"No round span found in row {row_idx+1}")
+                        continue
+                    
+                    # Extract just the round number from "Round 6", "R6", etc.
+                    row_round_digits = re.findall(r'\d+', row_round)
+                    if row_round_digits:
+                        # Use the first number found in the row round
+                        row_round_num = row_round_digits[0]
+                        logger.debug(f"Extracted row round number: {row_round_num} from '{row_round}'")
+                    else:
+                        row_round_num = ""
+                        logger.debug(f"Could not extract round number from '{row_round}'")
+                    
+                    # Check if the round numbers match, regardless of format
+                    if target_round_num and row_round_num and target_round_num == row_round_num:
+                        logger.info(f"Found matching round: '{row_round}' matches '{round_info}' (both contain round {target_round_num})")
+                    else:
+                        logger.debug(f"Round number '{row_round_num}' does not match target '{target_round_num}', skipping")
                         continue
                     
                     # Check for opponent match
                     try:
-                        opponent_element = row.find_element(By.CSS_SELECTOR, "a.white.padtop.padbottom")
-                        opponent_text = opponent_element.text.strip()
-                        if "vs" in opponent_text:
-                            opponent_code_extracted = opponent_text.replace("vs", "").strip()
-                            if not self._similar_codes(opponent_code_extracted, opponent_code):
-                                continue
-                        else:
+                        opponent_elements = row.find_elements(By.CSS_SELECTOR, "a.white.padtop.padbottom")
+                        opponent_matched = False
+                        
+                        for opp_elem in opponent_elements:
+                            opponent_text = opp_elem.text.strip()
+                            logger.debug(f"Opponent element text: '{opponent_text}'")
+                            
+                            if "vs" in opponent_text.lower():
+                                opponent_code_extracted = opponent_text.replace("vs", "").strip()
+                                logger.debug(f"Extracted opponent code: '{opponent_code_extracted}', comparing to '{opponent_code}'")
+                                
+                                if self._similar_codes(opponent_code_extracted, opponent_code):
+                                    opponent_matched = True
+                                    logger.info(f"Found matching opponent: '{opponent_text}' matches '{opponent_code}'")
+                                    break
+                        
+                        if not opponent_matched:
+                            logger.debug(f"No matching opponent found in row {row_idx+1}, skipping")
                             continue
+                            
                     except Exception as e:
                         logger.debug(f"Error extracting opponent: {e}")
                         continue
                     
-                    # Extract all judge links in this row
-                    judge_links = row.find_elements(By.CSS_SELECTOR, "a[href*='judge.mhtml']")
+                    # Check for judge match
+                    judge_matched = False
+                    judge_elements = row.find_elements(By.CSS_SELECTOR, "a[href*='judge.mhtml']")
                     
-                    # Check if any judge matches our judge
-                    for judge_link in judge_links:
-                        judge_href = judge_link.get_attribute("href")
-                        judge_text = judge_link.text.strip().lower()
+                    # Transform judge name for comparison
+                    judge_name_parts = judge_name.lower().split()
+                    judge_first = judge_name_parts[0] if len(judge_name_parts) > 0 else ""
+                    judge_last = judge_name_parts[-1] if len(judge_name_parts) > 0 else ""
+                    
+                    logger.debug(f"Looking for judge with first name '{judge_first}' and last name '{judge_last}'")
+                    
+                    for judge_elem in judge_elements:
+                        judge_text = judge_elem.text.strip().lower()
+                        logger.debug(f"Found judge element with text: '{judge_text}'")
                         
-                        # Normalize judge names for comparison
-                        judge_name_parts = [part.lower() for part in judge_name.split()]
-                        # Convert "Last, First" to a set of words
-                        judge_text_parts = set(judge_text.replace(",", " ").split())
+                        # Handle both "First Last" and "Last, First" formats
+                        judge_text_norm = judge_text.replace(",", " ").split()
                         
-                        # Match if the judge text contains all parts of the judge name
-                        name_match = all(part in judge_text_parts for part in judge_name_parts)
-                        
-                        if name_match:
+                        # Try multiple ways to match the judge name
+                        if (judge_first in judge_text and judge_last in judge_text or
+                            # Match "Last, First" format
+                            (len(judge_text_norm) >= 2 and 
+                             judge_first == judge_text_norm[-1] and 
+                             judge_last == judge_text_norm[0])):
+                            judge_matched = True
                             match_found = True
-                            logger.info(f"Found judge match: '{judge_text}' for '{judge_name}'")
+                            logger.info(f"Found judge match: '{judge_text}' matches '{judge_name}'")
                             
-                            # Find points if available (should be in the same div as the judge)
+                            # Find the points - in the entry page snippet, they're in a span.fifth.marno element
                             try:
-                                # Find the parent div of this judge
-                                parent_div = judge_link.find_element(By.XPATH, "./ancestor::div[contains(@class, 'padless')]")
+                                # Method 1: Find spans with class fifth marno within the row
+                                points_spans = row.find_elements(By.CSS_SELECTOR, "span.fifth.marno")
                                 
-                                # Look for points within this div
-                                try:
-                                    points_spans = parent_div.find_elements(By.CSS_SELECTOR, "span.fifth.marno")
-                                    if points_spans:
-                                        result["points"] = points_spans[0].text.strip()
-                                        logger.info(f"Found points: {result['points']}")
-                                except NoSuchElementException:
-                                    # Points not found - might be elimination round or bye
-                                    logger.debug("No points found for this round (elimination or bye)")
+                                # Try different selectors if the first doesn't work
+                                if not points_spans:
+                                    points_spans = row.find_elements(By.CSS_SELECTOR, "span.fifth")
+                                
+                                if points_spans:
+                                    for span in points_spans:
+                                        span_text = span.text.strip()
+                                        logger.debug(f"Found potential points text: '{span_text}'")
+                                        
+                                        # Check if it looks like a speaker point value (typically between 20-30)
+                                        if span_text and span_text.replace('.', '').isdigit():
+                                            try:
+                                                point_value = float(span_text)
+                                                if 20 <= point_value <= 30:
+                                                    result["points"] = span_text
+                                                    logger.info(f"Found speaker points: {result['points']}")
+                                                    break
+                                            except ValueError:
+                                                logger.debug(f"Could not convert '{span_text}' to float")
+                                
+                                # If points not found yet, try another approach
+                                if not result["points"]:
+                                    # Method 2: Look for points in the HTML content
+                                    row_html = row.get_attribute('innerHTML')
+                                    # Use regex to find points in the format of 2-digit number with decimal (e.g., 28.9)
+                                    points_match = re.search(r'<span class="fifth marno">\s*(\d{2}\.\d+)\s*</span>', row_html)
+                                    if points_match:
+                                        result["points"] = points_match.group(1)
+                                        logger.info(f"Found speaker points from HTML: {result['points']}")
+                            
                             except Exception as e:
-                                logger.debug(f"Error finding points: {e}")
+                                logger.debug(f"Error extracting points: {e}")
                             
                             break
                     
                     if match_found:
-                        logger.info(f"Found matching round with judge {judge_name}")
+                        logger.info(f"Found matching row with round, opponent, and judge")
                         break
                     
                 except Exception as e:
-                    logger.debug(f"Error processing result row: {e}")
+                    logger.debug(f"Error processing result row {row_idx+1}: {e}")
                     continue
             
             if not match_found:
@@ -460,6 +549,14 @@ class JudgeSearchScraper:
         # Direct match
         if row_round == target_round:
             return True
+        
+        # Extract numeric parts from both rounds
+        row_digits = re.findall(r'\d+', row_round)
+        target_digits = re.findall(r'\d+', target_round)
+        
+        # If both have numeric parts, compare the first digit of each
+        if row_digits and target_digits:
+            return row_digits[0] == target_digits[0]
         
         # Handle common variations
         if "round" in row_round and any(str(num) in target_round for num in range(1, 10)):
