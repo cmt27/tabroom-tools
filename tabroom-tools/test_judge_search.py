@@ -16,15 +16,6 @@ from pathlib import Path
 # Add the tabroom-tools directory to the Python path
 sys.path.append(str(Path(__file__).resolve().parent / "tabroom-tools"))
 
-# Apply the patch to fix method name inconsistencies
-try:
-    # Import the patch module
-    from judge_search_patch import *
-    print("Applied patch for method name inconsistencies")
-except ImportError:
-    print("Warning: Could not apply patch for method name inconsistencies")
-    print("If you encounter errors about 'get_authenticated_driver', run the judge_search_patch.py script first")
-
 # Import the necessary components
 from app.auth.session_manager import TabroomSession
 from app.scraping.judge_search import JudgeSearchScraper

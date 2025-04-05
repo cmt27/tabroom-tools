@@ -57,7 +57,7 @@ def get_authenticated_driver(username=None, password=None):
     """
     session = TabroomSession()
     if session.ensure_login(username, password):
-        return session.get_driver()
+        return session.get_authenticated_driver()
     return None
 
 def clear_session():
