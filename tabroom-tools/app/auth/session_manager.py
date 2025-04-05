@@ -331,6 +331,16 @@ class TabroomSession:
             if 'driver' in locals() and driver:
                 self.driver_pool.release_driver()
             return None
+            
+    def get_authenticated_driver(self):
+        """
+        Alias for get_driver() to maintain compatibility with code that expects this method name
+        
+        Returns:
+            WebDriver: Authenticated WebDriver instance or None if authentication failed
+        """
+        logger.debug("get_authenticated_driver called - using get_driver as alias")
+        return self.get_driver()
     
     def release_driver(self, driver=None):
         """

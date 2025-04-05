@@ -1,6 +1,7 @@
 # app/scraping/judge_search.py
 import time
 import re
+import os
 import logging
 import pandas as pd
 from selenium.webdriver.common.by import By
@@ -45,6 +46,7 @@ class JudgeSearchScraper:
         try:
             # Get an authenticated driver
             driver = self.session_manager.get_driver()
+            
             if not driver:
                 logger.error("Failed to get authenticated driver")
                 return pd.DataFrame()
@@ -116,8 +118,20 @@ class JudgeSearchScraper:
             
             if not candidate_links:
                 logger.error("No candidate judge links found in search results")
+                
+                # Save the full page source for debugging
+                try:
+                    debug_file = os.path.join(config.DATA_DIR, "search_results_debug.html")
+                    with open(debug_file, 'w', encoding='utf-8') as f:
+                        f.write(driver.page_source)
+                    logger.info(f"Saved full page source to {debug_file}")
+                except Exception as e:
+                    logger.error(f"Error saving page source: {e}")
+                
+                # Log a snippet of the page source
                 page_source_snippet = driver.page_source[:1000]
                 logger.debug(f"Page source snippet: {page_source_snippet}")
+                
                 return pd.DataFrame()
             
             # Filter out known sidebar options
@@ -170,6 +184,7 @@ class JudgeSearchScraper:
             
         except Exception as e:
             logger.error(f"Error during judge search scraping for '{judge_name}': {e}")
+            # Always return an empty DataFrame, never None
             return pd.DataFrame()
         finally:
             # Release the driver back to the pool
